@@ -1,0 +1,107 @@
+/*
+ * Home Studio - Global Design System & Variables
+ * Premium Luxury Minimalist E-Commerce Architecture
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+
+:root {
+    /* Color Palette */
+    --color-cream: #faf8f5;
+    --color-beige: #f3eee6;
+    --color-light-beige: #f9f6f0;
+    --color-warm-gray: #e7e2d8;
+    --color-luxury-gold: #9c8466;
+    --color-luxury-gold-dark: #7d6950;
+    --color-dark-brown: #2c221e;
+    --color-charcoal: #1a1a1a;
+    --color-white: #ffffff;
+    --color-error: #b55d5d;
+    --color-success: #5d8e75;
+
+    /* Typography */
+    --font-cormorant: 'Cormorant Garamond', Georgia, serif;
+    --font-serif: 'Playfair Display', Georgia, serif;
+    --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+
+    /* Spacing (Premium & Generous) */
+    --spacing-xs: 0.5rem;   /* 8px */
+    --spacing-sm: 1rem;     /* 16px */
+    --spacing-md: 1.5rem;   /* 24px */
+    --spacing-lg: 2.5rem;   /* 40px */
+    --spacing-xl: 4rem;     /* 64px */
+    --spacing-xxl: 6rem;    /* 96px */
+
+    /* Shadows (Soft & Subtle) */
+    --shadow-sm: 0 2px 8px rgba(44, 34, 30, 0.04);
+    --shadow-md: 0 8px 24px rgba(44, 34, 30, 0.06);
+    --shadow-lg: 0 16px 40px rgba(44, 34, 30, 0.08);
+    --shadow-premium: 0 20px 50px rgba(156, 132, 102, 0.08);
+
+    /* Border Radius (Rounded Modern UI) */
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 16px;
+    --radius-full: 9999px;
+
+    /* Transitions */
+    --transition-smooth: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    --transition-slow: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Base resets & styles */
+html {
+    scroll-behavior: smooth;
+    background-color: var(--color-cream);
+    color: var(--color-dark-brown);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    background-color: var(--color-cream);
+    overflow-x: hidden;
+}
+
+/* Luxury Typography Utilities */
+h1, h2, h3, h4, h5, h6, .font-display {
+    font-family: var(--font-serif);
+    letter-spacing: -0.02em;
+    color: var(--color-dark-brown);
+}
+
+/* Selection Highlight */
+::selection {
+    background-color: var(--color-beige);
+    color: var(--color-dark-brown);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--color-cream);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-warm-gray);
+    border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-luxury-gold);
+}
+
+/* Header SVG Icon Fallback Dimensions */
+header button svg,
+header a svg {
+    width: 20px;
+    height: 20px;
+}
+
+header .cart-count-badge {
+    width: 16px;
+    height: 16px;
+}

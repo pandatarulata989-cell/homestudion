@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>Collections | Home Studio</title>
+    <meta name="description" content="Explore our minimalist, high-end furniture collections. Elevate your spaces with modern luxury.">
+    
+    <!-- Prevent Caching of HTML and Assets -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    
+    <!-- CSS Design System Styling -->
+    <link rel="stylesheet" href="css/style.css?v=2">
+    <link rel="stylesheet" href="css/utilities.css?v=2">
+    <link rel="stylesheet" href="css/animations.css?v=2">
+    <link rel="stylesheet" href="css/responsive.css?v=2">
+    <link rel="stylesheet" href="css/mobile-nav.css?v=2">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'luxury-cream': 'var(--color-cream)',
+                        'luxury-beige': 'var(--color-beige)',
+                        'luxury-light-beige': 'var(--color-light-beige)',
+                        'luxury-gold': 'var(--color-luxury-gold)',
+                        'luxury-gold-dark': 'var(--color-luxury-gold-dark)',
+                        'luxury-brown': 'var(--color-dark-brown)',
+                        'luxury-charcoal': 'var(--color-charcoal)',
+                        'cream': 'var(--color-cream)',
+                        'dark-brown': 'var(--color-dark-brown)',
+                        'warm-gray': 'var(--color-warm-gray)',
+                    },
+                    fontFamily: {
+                        serif: ['var(--font-serif)', 'serif'],
+                        sans: ['var(--font-sans)', 'sans-serif'],
+                    },
+                    spacing: {
+                        'xs': 'var(--spacing-xs)',
+                        'sm': 'var(--spacing-sm)',
+                        'md': 'var(--spacing-md)',
+                        'lg': 'var(--spacing-lg)',
+                        'xl': 'var(--spacing-xl)',
+                        'xxl': 'var(--spacing-xxl)',
+                    },
+                    borderRadius: {
+                        'sm': 'var(--radius-sm)',
+                        'md': 'var(--radius-md)',
+                        'lg': 'var(--radius-lg)',
+                    },
+                    boxShadow: {
+                        'premium': 'var(--shadow-premium)',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-luxury-cream text-luxury-brown flex flex-col min-h-screen">
+
+    <!-- Premium Pre-loader -->
+    <div id="full-page-loader" class="fixed inset-0 z-50 bg-luxury-cream flex flex-col items-center justify-center transition-opacity duration-500">
+        <div class="relative w-12 h-12 mb-4">
+            <div class="absolute inset-0 rounded-full border border-luxury-brown/10"></div>
+            <div class="absolute inset-0 rounded-full border border-t-luxury-gold border-r-transparent border-b-transparent border-l-transparent animate-spin"></div>
+        </div>
+        <span class="text-[9px] uppercase tracking-[0.3em] text-luxury-brown/40">Home Studio</span>
+    </div>
+
+    <!-- Reusable Navbar Injection -->
+    <div data-include="components/navbar.html"></div>
+
+    <!-- ─── Mobile Navigation Overlay (hardcoded for reliable DOM access) ─── -->
+
+    <!-- Backdrop: dark blurred overlay behind drawer -->
+    <div id="mobile-nav-backdrop"></div>
+
+    <!-- Drawer Panel: slides in from the right -->
+    <div id="mobile-nav-drawer" role="dialog" aria-modal="true" aria-label="Navigation menu">
+
+        <!-- Top bar: brand + close button -->
+        <div class="mnav-top">
+            <div class="mnav-brand">
+                <span class="mnav-brand-name">Home Studio</span>
+                <span class="mnav-brand-sub">Paris Style Interiors</span>
+            </div>
+            <button id="mobile-nav-close-btn" aria-label="Close navigation menu">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+                    <line x1="6"  y1="6"  x2="18" y2="18"/>
+                    <line x1="18" y1="6"  x2="6"  y2="18"/>
+                </svg>
+            </button>
+        </div>
+
+        <!-- The four navigation links -->
+        <div class="mnav-links">
+            <a href="collection.html?category=all"    class="mnav-link">Explore Categories</a>
+            <a href="index.html#collections-section"  class="mnav-link">Explore Collections</a>
+            <a href="index.html#bestsellers-section"  class="mnav-link">Bestsellers</a>
+            <a href="index.html#new-launches-section" class="mnav-link">New Arrivals</a>
+        </div>
+
+    </div><!-- #mobile-nav-drawer -->
+
+    <!-- Main Content Container -->
+    <main class="flex-grow pt-28 md:pt-36 pb-24 luxury-container">
+        
+        <!-- Header Banner -->
+        <div class="mb-12 border-b border-warm-gray/20 pb-8">
+            <h1 id="collection-title" class="font-serif text-4xl md:text-5xl mb-4">The Catalog</h1>
+            <p class="text-xs uppercase tracking-widest text-luxury-brown/50">Explore bespoke interior curation</p>
+        </div>
+
+        <!-- Sidebar / Filter Bar controls -->
+        <div class="flex flex-col lg:flex-row gap-10">
+            
+            <!-- Filters Sidebar -->
+            <aside class="w-full lg:w-64 flex-shrink-0 flex flex-col gap-6">
+                <!-- Search -->
+                <div class="flex flex-col gap-2">
+                    <label class="text-[10px] uppercase tracking-widest text-luxury-brown/50 font-bold">Search</label>
+                    <input 
+                        type="text" 
+                        id="search-input" 
+                        placeholder="Search items..." 
+                        class="bg-white border border-luxury-brown/20 rounded p-2 text-xs tracking-wider focus:outline-none focus:border-luxury-gold focus:ring-0"
+                    />
+                </div>
+
+                <!-- Categories -->
+                <div class="flex flex-col gap-2">
+                    <label class="text-[10px] uppercase tracking-widest text-luxury-brown/50 font-bold">Category</label>
+                    <div id="category-filter-list" class="flex flex-wrap lg:flex-col gap-2">
+                        <!-- Loaded dynamically from active database items to prevent displaying empty links -->
+                        <button class="category-filter-btn text-left text-xs uppercase tracking-wider py-1 font-semibold text-luxury-gold hover:text-luxury-gold" data-category="all">All Items</button>
+                    </div>
+                </div>
+
+                <!-- Sorting Selection -->
+                <div class="flex flex-col gap-2">
+                    <label class="text-[10px] uppercase tracking-widest text-luxury-brown/50 font-bold">Sort By</label>
+                    <select id="sort-select" class="bg-white border border-luxury-brown/20 rounded p-2 text-xs tracking-wider focus:outline-none focus:border-luxury-gold">
+                        <option value="newest">Featured / New</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                        <option value="alphabetical">Alphabetical</option>
+                    </select>
+                </div>
+            </aside>
+
+            <!-- Product Grid Area -->
+            <div class="flex-grow">
+                <div id="categories-container"></div>
+                <div id="empty-state" class="hidden text-center py-20">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto text-luxury-brown/30 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <p class="text-sm text-luxury-brown/50">No products match your filter settings.</p>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- Reusable Footer Injection -->
+    <div data-include="components/footer.html"></div>
+
+    <!-- Floating Filter Pill Button for Mobile -->
+    <button id="floating-filter-btn" class="fixed bottom-4 left-1/2 transform -translate-x-1/2 bg-[#2a1c15] text-white px-6 py-3 rounded-full shadow-2xl flex items-center gap-2 z-50 lg:hidden hover:bg-[#402a1f] active:scale-95 transition-all duration-300">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
+        </svg>
+        <span class="text-xs uppercase tracking-widest font-bold">Filters</span>
+    </button>
+
+    <!-- Scripts Injection -->
+    <script type="module" src="js/app.js?v=2"></script>
+    <script type="module">
+        import { getProductsByCategory, sortProducts, filterProducts, createCategoryProductCardMarkup, createCategorySkeletonCardMarkup } from './js/products.js?v=2';
+        
+        let currentProducts = [];
+        let activeCategory = 'all';
+
+        function getCategoryDisplayName(catName) {
+            const mapping = {
+                'sheets': 'Luxury Sheets',
+                'pillows': 'Luxury Pillows',
+                'duvets': 'Premium Duvets',
+                'comforters': 'Premium Comforters',
+                'quilts': 'Premium Quilts',
+                'cushions': 'Premium Cushions',
+                'blankets': 'Premium Blankets',
+                'runners': 'Bed Runners',
+                'living': 'Living Room Collection',
+                'bedroom': 'Master Bedroom Suite',
+                'curtains': 'Luxury Curtains',
+                'candles': 'Scented Candles',
+                'decor': 'Luxury Décor',
+                'lighting': 'Sculptural Lighting',
+                'furniture': 'Bespoke Furniture',
+                'textiles': 'Premium Textiles'
+            };
+            return mapping[catName.toLowerCase()] || catName;
+        }
+
+        // Helper to bind events to cards in a grid container
+        function bindCardEvents(grid) {
+            if (!grid) return;
+            
+            // Redirect to Product Detail Page (PDP)
+            grid.querySelectorAll('.buy-now-btn, .card-title, .bestsellers-card-title, .new-launches-card-title').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const card = e.target.closest('[data-id]');
+                    if (card) {
+                        const id = card.getAttribute('data-id');
+                        window.location.href = `product.html?id=${id}`;
+                    }
+                });
+            });
+        }
+
+        async function fetchAndRender() {
+            const grid = document.getElementById('categories-container');
+            const emptyState = document.getElementById('empty-state');
+            
+            // Show premium skeleton cards grid
+            grid.className = "grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 p-3 sm:gap-6 sm:p-0";
+            grid.innerHTML = Array(4).fill(createCategorySkeletonCardMarkup()).join('');
+            emptyState.classList.add('hidden');
+
+            try {
+                // Fetch live from Firestore using category (with where clause inside getProductsByCategory)
+                currentProducts = await getProductsByCategory(activeCategory);
+                renderCollection();
+            } catch (err) {
+                console.error("Failed to load products in collection:", err);
+                grid.innerHTML = `
+                    <div class="col-span-full py-16 text-center flex flex-col items-center justify-center bg-white rounded-2xl border border-luxury-gold/5 shadow-sm p-8 w-full">
+                        <p class="font-cormorant italic text-2xl text-[#2c221e]/80 mb-2">Service Temporarily Offline</p>
+                        <p class="text-xs text-[#2c221e]/50 uppercase tracking-widest">Unable to load catalog from server. Please check back later.</p>
+                    </div>
+                `;
+            }
+        }
+
+        function renderCategorySidebar(categories) {
+            const container = document.getElementById('category-filter-list');
+            if (!container) return;
+
+            let html = `
+                <button class="category-filter-btn text-left text-xs uppercase tracking-wider py-1 ${activeCategory === 'all' ? 'text-luxury-gold font-semibold' : 'text-luxury-brown/60'} hover:text-luxury-gold" data-category="all">All Items</button>
+            `;
+
+            categories.forEach(cat => {
+                const displayName = getCategoryDisplayName(cat);
+                const isActive = (cat === activeCategory);
+                html += `
+                    <button class="category-filter-btn text-left text-xs uppercase tracking-wider py-1 ${isActive ? 'text-luxury-gold font-semibold' : 'text-luxury-brown/60'} hover:text-luxury-gold" data-category="${cat}">${displayName}</button>
+                `;
+            });
+
+            container.innerHTML = html;
+
+            // Re-bind click event listeners to the newly rendered buttons
+            container.querySelectorAll('.category-filter-btn').forEach(btn => {
+                btn.addEventListener('click', async (e) => {
+                    activeCategory = e.target.getAttribute('data-category').toLowerCase();
+
+                    container.querySelectorAll('.category-filter-btn').forEach(b => {
+                        b.classList.remove('text-luxury-gold', 'font-semibold');
+                        b.classList.add('text-luxury-brown/60');
+                    });
+                    e.target.classList.add('text-luxury-gold', 'font-semibold');
+                    e.target.classList.remove('text-luxury-brown/60');
+
+                    // Keep URL state synchronized with active category
+                    history.replaceState(null, '', `?category=${activeCategory}`);
+
+                    // Fetch matching products from Firestore dynamically on category click
+                    await fetchAndRender();
+                });
+            });
+        }
+
+        async function init() {
+            // Get URL parameter for category if it exists
+            const urlParams = new URLSearchParams(window.location.search);
+            activeCategory = (urlParams.get('category') || 'all').toLowerCase();
+
+            try {
+                // Fetch all active products first to extract active categories dynamically
+                const allProducts = await getProductsByCategory('all');
+
+                // Extract unique, non-empty active categories
+                const categories = [...new Set(allProducts.map(p => (p.category || '').toLowerCase().trim()).filter(Boolean))];
+
+                // Render dynamic category sidebar filter buttons
+                renderCategorySidebar(categories);
+
+                // If landing category is 'all', use the allProducts list we just fetched!
+                if (activeCategory === 'all') {
+                    currentProducts = allProducts;
+                    renderCollection();
+                } else {
+                    // Otherwise, query Firestore for the specific category
+                    await fetchAndRender();
+                }
+            } catch (err) {
+                console.error("Failed to initialize active categories sidebar:", err);
+                // Fallback rendering
+                await fetchAndRender();
+            }
+
+            // Bind triggers
+            document.getElementById('sort-select').addEventListener('change', renderCollection);
+            document.getElementById('search-input').addEventListener('input', renderCollection);
+
+            // Bind floating filter button action
+            document.getElementById('floating-filter-btn')?.addEventListener('click', () => {
+                const searchInput = document.getElementById('search-input');
+                if (searchInput) {
+                    searchInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    searchInput.focus();
+                }
+            });
+        }
+
+        if (window.__componentsLoaded) {
+            init();
+        } else {
+            document.addEventListener('componentsLoaded', init);
+        }
+
+        function renderCollection() {
+            const grid = document.getElementById('categories-container');
+            const emptyState = document.getElementById('empty-state');
+            const sortBy = document.getElementById('sort-select').value;
+            const searchVal = document.getElementById('search-input').value;
+
+            // 1. Filter locally
+            let filtered = filterProducts(currentProducts, {
+                category: 'all', // already filtered by Firestore query
+                search: searchVal
+            });
+
+            // 2. Sort locally
+            let sorted = sortProducts(filtered, sortBy);
+
+            // 3. Render
+            if (sorted.length === 0) {
+                grid.className = "grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 p-3 sm:gap-6 sm:p-0";
+                grid.innerHTML = '';
+                emptyState.classList.remove('hidden');
+                return;
+            }
+
+            emptyState.classList.add('hidden');
+
+            if (activeCategory === 'all') {
+                // Group products by category (case-normalized)
+                const groups = {};
+                sorted.forEach(p => {
+                    const cat = (p.category || 'other').toLowerCase();
+                    if (!groups[cat]) groups[cat] = [];
+                    groups[cat].push(p);
+                });
+
+                // Clear flat grid styling class from container and make it a flex container
+                grid.className = "flex flex-col gap-14 w-full";
+
+                let html = '';
+                for (const [catName, catProducts] of Object.entries(groups)) {
+                    const displayName = getCategoryDisplayName(catName);
+                    
+                    html += `
+                        <div class="category-section border-b border-warm-gray/20 pb-12 last:border-0 last:pb-0">
+                            <div class="mb-6 flex items-center justify-between">
+                                <h2 class="font-serif text-2xl md:text-3xl capitalize tracking-wide text-luxury-brown font-light">${displayName}</h2>
+                                <span class="text-[10px] uppercase tracking-widest text-luxury-brown/40 font-semibold">${catProducts.length} Item${catProducts.length > 1 ? 's' : ''}</span>
+                            </div>
+                            <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 p-3 sm:gap-6 sm:p-0">
+                                ${catProducts.map(p => createCategoryProductCardMarkup(p)).join('')}
+                            </div>
+                        </div>
+                    `;
+                }
+                
+                grid.innerHTML = html;
+            } else {
+                // Restore flat grid styling class for category view
+                grid.className = "grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 p-3 sm:gap-6 sm:p-0";
+                grid.innerHTML = sorted.map(p => createCategoryProductCardMarkup(p)).join('');
+            }
+            
+            bindCardEvents(grid);
+        }
+    </script>
+</body>
+</html>

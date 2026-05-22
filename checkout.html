@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>Checkout | Home Studio</title>
+    <meta name="description" content="Securely complete your luxury order via WhatsApp checkout at Home Studio.">
+    
+    <!-- CSS Design System Styling -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/utilities.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/mobile-nav.css">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'luxury-cream': 'var(--color-cream)',
+                        'luxury-beige': 'var(--color-beige)',
+                        'luxury-light-beige': 'var(--color-light-beige)',
+                        'luxury-gold': 'var(--color-luxury-gold)',
+                        'luxury-gold-dark': 'var(--color-luxury-gold-dark)',
+                        'luxury-brown': 'var(--color-dark-brown)',
+                        'luxury-charcoal': 'var(--color-charcoal)',
+                        'cream': 'var(--color-cream)',
+                        'dark-brown': 'var(--color-dark-brown)',
+                        'warm-gray': 'var(--color-warm-gray)',
+                    },
+                    fontFamily: {
+                        serif: ['var(--font-serif)', 'serif'],
+                        sans: ['var(--font-sans)', 'sans-serif'],
+                    },
+                    spacing: {
+                        'xs': 'var(--spacing-xs)',
+                        'sm': 'var(--spacing-sm)',
+                        'md': 'var(--spacing-md)',
+                        'lg': 'var(--spacing-lg)',
+                        'xl': 'var(--spacing-xl)',
+                        'xxl': 'var(--spacing-xxl)',
+                    },
+                    borderRadius: {
+                        'sm': 'var(--radius-sm)',
+                        'md': 'var(--radius-md)',
+                        'lg': 'var(--radius-lg)',
+                    },
+                    boxShadow: {
+                        'premium': 'var(--shadow-premium)',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-luxury-cream text-luxury-brown flex flex-col min-h-screen">
+
+    <!-- Premium Pre-loader -->
+    <div id="full-page-loader" class="fixed inset-0 z-50 bg-luxury-cream flex flex-col items-center justify-center transition-opacity duration-500">
+        <div class="relative w-12 h-12 mb-4">
+            <div class="absolute inset-0 rounded-full border border-luxury-brown/10"></div>
+            <div class="absolute inset-0 rounded-full border border-t-luxury-gold border-r-transparent border-b-transparent border-l-transparent animate-spin"></div>
+        </div>
+        <span class="text-[9px] uppercase tracking-[0.3em] text-luxury-brown/40">Home Studio</span>
+    </div>
+
+    <!-- Reusable Navbar Injection -->
+    <div data-include="components/navbar.html"></div>
+
+    <!-- ─── Mobile Navigation Overlay (hardcoded for reliable DOM access) ─── -->
+
+    <!-- Backdrop: dark blurred overlay behind drawer -->
+    <div id="mobile-nav-backdrop"></div>
+
+    <!-- Drawer Panel: slides in from the right -->
+    <div id="mobile-nav-drawer" role="dialog" aria-modal="true" aria-label="Navigation menu">
+
+        <!-- Top bar: brand + close button -->
+        <div class="mnav-top">
+            <div class="mnav-brand">
+                <span class="mnav-brand-name">Home Studio</span>
+                <span class="mnav-brand-sub">Paris Style Interiors</span>
+            </div>
+            <button id="mobile-nav-close-btn" aria-label="Close navigation menu">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+                    <line x1="6"  y1="6"  x2="18" y2="18"/>
+                    <line x1="18" y1="6"  x2="6"  y2="18"/>
+                </svg>
+            </button>
+        </div>
+
+        <!-- The four navigation links -->
+        <div class="mnav-links">
+            <a href="collection.html?category=all"    class="mnav-link">Explore Categories</a>
+            <a href="index.html#collections-section"  class="mnav-link">Explore Collections</a>
+            <a href="index.html#bestsellers-section"  class="mnav-link">Bestsellers</a>
+            <a href="index.html#new-launches-section" class="mnav-link">New Arrivals</a>
+        </div>
+
+    </div><!-- #mobile-nav-drawer -->
+
+    <!-- Main Content Container -->
+    <main class="flex-grow pt-28 md:pt-36 pb-24 luxury-container">
+        
+        <h1 class="font-serif text-3xl md:text-4xl mb-10">Checkout</h1>
+
+        <!-- Checkout Layout -->
+        <div class="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16">
+            
+            <!-- Delivery Form (Column 1-3) -->
+            <div class="lg:col-span-3">
+                <form id="checkout-form" class="bg-white p-8 rounded-md shadow-sm border border-luxury-gold/5 flex flex-col gap-6">
+                    <h2 class="font-serif text-xl border-b border-warm-gray/20 pb-4">Shipping Details</h2>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="flex flex-col gap-2">
+                            <label for="cust-name" class="text-[10px] uppercase tracking-widest text-luxury-brown/50 font-bold">Full Name *</label>
+                            <input type="text" id="cust-name" required class="bg-luxury-cream border border-luxury-brown/20 rounded p-2 text-xs tracking-wider focus:outline-none focus:border-luxury-gold">
+                        </div>
+                        <div class="flex flex-col gap-2">
+                            <label for="cust-email" class="text-[10px] uppercase tracking-widest text-luxury-brown/50 font-bold">Email Address *</label>
+                            <input type="email" id="cust-email" required class="bg-luxury-cream border border-luxury-brown/20 rounded p-2 text-xs tracking-wider focus:outline-none focus:border-luxury-gold">
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col gap-2">
+                        <label for="cust-phone" class="text-[10px] uppercase tracking-widest text-luxury-brown/50 font-bold">WhatsApp Phone Number *</label>
+                        <input type="tel" id="cust-phone" required placeholder="e.g. +15551234567" class="bg-luxury-cream border border-luxury-brown/20 rounded p-2 text-xs tracking-wider focus:outline-none focus:border-luxury-gold">
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div class="md:col-span-2 flex flex-col gap-2">
+                            <label for="cust-address" class="text-[10px] uppercase tracking-widest text-luxury-brown/50 font-bold">Shipping Address *</label>
+                            <input type="text" id="cust-address" required class="bg-luxury-cream border border-luxury-brown/20 rounded p-2 text-xs tracking-wider focus:outline-none focus:border-luxury-gold">
+                        </div>
+                        <div class="flex flex-col gap-2">
+                            <label for="cust-city" class="text-[10px] uppercase tracking-widest text-luxury-brown/50 font-bold">City *</label>
+                            <input type="text" id="cust-city" required class="bg-luxury-cream border border-luxury-brown/20 rounded p-2 text-xs tracking-wider focus:outline-none focus:border-luxury-gold">
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col gap-2">
+                        <label for="cust-notes" class="text-[10px] uppercase tracking-widest text-luxury-brown/50 font-bold">Special Care Instructions (Optional)</label>
+                        <textarea id="cust-notes" rows="4" placeholder="e.g. gate code, floor number, specific delivery timing..." class="bg-luxury-cream border border-luxury-brown/20 rounded p-2 text-xs tracking-wider focus:outline-none focus:border-luxury-gold"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-luxury py-4 tracking-[0.2em] font-semibold text-sm">
+                        Place Order via WhatsApp
+                    </button>
+                </form>
+            </div>
+
+            <!-- Bag Summary Panel (Column 4-5) -->
+            <div class="lg:col-span-2 flex flex-col gap-6">
+                <div class="bg-white p-8 rounded-md shadow-sm border border-luxury-gold/5 flex flex-col gap-6">
+                    <h2 class="font-serif text-xl border-b border-warm-gray/20 pb-4">Your Order</h2>
+                    
+                    <!-- Scroll list of mini items -->
+                    <div id="checkout-items-list" class="flex flex-col gap-4 max-h-[320px] overflow-y-auto pr-2">
+                        <!-- Dynamically filled via JS -->
+                    </div>
+
+                    <div class="border-t border-warm-gray/20 pt-6 flex flex-col gap-3 text-xs">
+                        <div class="flex justify-between">
+                            <span class="text-luxury-brown/60">Subtotal</span>
+                            <span class="font-semibold text-luxury-brown" id="checkout-subtotal">₹0</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-luxury-brown/60">Delivery & Valet</span>
+                            <span class="font-semibold text-luxury-gold-dark uppercase tracking-wider text-[10px]">Complimentary</span>
+                        </div>
+                        <div class="border-t border-warm-gray/20 pt-4 flex justify-between text-base font-bold">
+                            <span>Total</span>
+                            <span class="text-luxury-gold-dark" id="checkout-total">₹0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- Reusable Footer Injection -->
+    <div data-include="components/footer.html"></div>
+
+    <!-- Scripts Injection -->
+    <script type="module" src="js/app.js"></script>
+    <script type="module">
+        import { getCart, getCartTotals, clearCart } from './js/cart.js';
+        import { checkoutViaWhatsApp } from './js/whatsapp.js';
+        import { saveOrderToFirestore } from './js/firebase.js';
+
+        function init() {
+            const cartItems = getCart();
+            if (cartItems.length === 0) {
+                window.location.href = 'cart.html';
+                return;
+            }
+
+            renderCheckoutSummary();
+
+            const form = document.getElementById('checkout-form');
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                
+                const customerInfo = {
+                    name: document.getElementById('cust-name').value,
+                    email: document.getElementById('cust-email').value,
+                    phone: document.getElementById('cust-phone').value,
+                    address: document.getElementById('cust-address').value,
+                    city: document.getElementById('cust-city').value,
+                    notes: document.getElementById('cust-notes').value
+                };
+
+                const totals = getCartTotals();
+
+                // 1. Attempt database backup in Firestore (silent success, logs warnings)
+                try {
+                    await saveOrderToFirestore(customerInfo, cartItems, totals.subtotal);
+                } catch (fsErr) {
+                    console.info("Firestore order archiving bypassed. Directing directly to customer WhatsApp pipeline.");
+                }
+
+                // 2. Perform checkout transition
+                checkoutViaWhatsApp(customerInfo, cartItems, totals);
+
+                // 3. Clear cart since order has been processed
+                clearCart();
+
+                // 4. Redirect home after a small delay
+                setTimeout(() => {
+                    window.location.href = 'index.html';
+                }, 1000);
+            });
+        }
+
+        if (window.__componentsLoaded) {
+            init();
+        } else {
+            document.addEventListener('componentsLoaded', init);
+        }
+
+        function renderCheckoutSummary() {
+            const cartItems = getCart();
+            const itemsList = document.getElementById('checkout-items-list');
+            const subtotalText = document.getElementById('checkout-subtotal');
+            const totalText = document.getElementById('checkout-total');
+            
+            const formatter = {
+                format: (val) => {
+                    const num = parseFloat(val);
+                    if (isNaN(num)) return '₹0';
+                    if (num % 1 === 0) {
+                        return '₹' + num.toLocaleString('en-IN');
+                    } else {
+                        return '₹' + num.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+                    }
+                }
+            };
+
+            itemsList.innerHTML = cartItems.map(item => `
+                <div class="flex items-center gap-4 text-xs">
+                    <img src="${item.image}" class="w-12 h-12 object-cover rounded bg-luxury-beige" alt="${item.name}">
+                    <div class="flex-grow">
+                        <div class="font-semibold text-luxury-brown">${item.name}</div>
+                        <div class="text-luxury-brown/50 text-[10px]">Qty: ${item.quantity}</div>
+                    </div>
+                    <div class="font-semibold">${formatter.format(item.price * item.quantity)}</div>
+                </div>
+            `).join('');
+
+            const totals = getCartTotals();
+            subtotalText.textContent = formatter.format(totals.subtotal);
+            totalText.textContent = formatter.format(totals.subtotal);
+        }
+    </script>
+</body>
+</html>

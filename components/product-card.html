@@ -1,0 +1,53 @@
+<!-- 
+  Home Studio - Reusable Product Card Mockup
+  Referenced & rendered dynamically inside js/products.js
+-->
+<div class="group relative flex flex-col justify-between bg-white rounded-md overflow-hidden shadow-sm hover:shadow-md transition-all duration-300">
+    
+    <!-- Image Area with badge and action hover button -->
+    <div class="relative aspect-square overflow-hidden bg-beige">
+        <!-- New Badge (Optional) -->
+        <span class="absolute top-4 left-4 z-10 bg-luxury-gold text-cream text-xs uppercase tracking-widest px-3 py-1 rounded-sm">
+            New
+        </span>
+        
+        <a href="product.html?id=ID_PLACEHOLDER" class="block h-full w-full">
+            <img 
+                src="assets/images/placeholder.jpg" 
+                alt="Product Name" 
+                class="h-full w-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                loading="lazy"
+            />
+        </a>
+        
+        <!-- Add to Bag Quick Button -->
+        <button 
+            class="add-to-cart-quick absolute bottom-4 right-4 bg-white/90 hover:bg-dark-brown hover:text-white text-dark-brown w-10 h-10 flex items-center justify-center rounded-full shadow transition-all duration-300 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 focus:opacity-100 focus:translate-y-0"
+            aria-label="Add to cart"
+        >
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4v16m8-8H4" />
+            </svg>
+        </button>
+    </div>
+    
+    <!-- Item Metadata Details -->
+    <div class="p-5 flex flex-col flex-grow justify-between">
+        <div>
+            <span class="text-xs uppercase tracking-widest text-dark-brown/40 mb-1 block">
+                Category
+            </span>
+            <a href="product.html?id=ID_PLACEHOLDER" class="hover:text-luxury-gold transition-colors duration-300">
+                <h3 class="text-base font-medium font-sans mb-1 text-dark-brown">
+                    Product Title Name
+                </h3>
+            </a>
+        </div>
+        <div class="flex items-center justify-between mt-3">
+            <span class="text-sm font-semibold text-luxury-gold-dark font-sans">
+                ₹2,450.00
+            </span>
+        </div>
+    </div>
+
+</div>

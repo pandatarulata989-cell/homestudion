@@ -1,0 +1,31 @@
+<!-- 
+  Home Studio - Reusable Luxury Loading States
+  Dynamic inclusion: data-include="components/loaders.html"
+-->
+
+<!-- 1. Skeleton Card Grid Placeholder Loader (Iterate this wrapper to form product list loaders) -->
+<div class="skeleton-card flex flex-col bg-white rounded-md overflow-hidden shadow-sm p-4 w-full animate-pulse">
+    <!-- Image Shimmer -->
+    <div class="w-full aspect-square skeleton-shimmer rounded-sm mb-4"></div>
+    <!-- Subcategory Shimmer -->
+    <div class="h-3 w-1/4 skeleton-shimmer rounded-sm mb-2"></div>
+    <!-- Title Shimmer -->
+    <div class="h-4 w-3/4 skeleton-shimmer rounded-sm mb-3"></div>
+    <!-- Price Shimmer -->
+    <div class="h-4 w-1/3 skeleton-shimmer rounded-sm"></div>
+</div>
+
+<!-- 2. Full Page Luxury Spinner Loader -->
+<div id="full-page-loader" class="fixed inset-0 z-50 bg-cream flex flex-col items-center justify-center transition-opacity duration-500">
+    <div class="relative w-16 h-16 mb-4">
+        <!-- Thin double circle spinner -->
+        <div class="absolute inset-0 rounded-full border-[1px] border-warm-gray/30"></div>
+        <div class="absolute inset-0 rounded-full border-[1.5px] border-t-luxury-gold border-r-transparent border-b-transparent border-l-transparent animate-spin"></div>
+    </div>
+    <span class="text-xs uppercase tracking-[0.3em] text-dark-brown/60">Home Studio</span>
+</div>
+
+<!-- 3. Minimal Element Inline Spinner -->
+<div class="inline-loader flex items-center justify-center p-6">
+    <div class="w-6 h-6 rounded-full border-[1px] border-dark-brown/10 border-t-luxury-gold animate-spin"></div>
+</div>

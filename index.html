@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>Home Studio | Premium Luxury Furniture & Minimalist Living</title>
+    <meta name="description" content="Curators of premium luxury living spaces. Discover crafted, high-end, D2C furnishings that represent the intersection of comfort and high art.">
+    <meta name="keywords" content="luxury furniture, D2C furniture, minimalist home, travertine table, bouclé chair, modern interiors">
+    <meta name="author" content="Home Studio">
+    
+    <!-- Open Graph / Social Sharing -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Home Studio | Premium Luxury Furniture">
+    <meta property="og:description" content="Discover curated minimalist luxury furniture designed for modern residential sanctuaries.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&q=80&w=800">
+    <meta property="og:url" content="index.html">
+
+    <!-- CSS Design System Styling -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/utilities.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/mobile-nav.css">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'luxury-cream': 'var(--color-cream)',
+                        'luxury-beige': 'var(--color-beige)',
+                        'luxury-light-beige': 'var(--color-light-beige)',
+                        'luxury-gold': 'var(--color-luxury-gold)',
+                        'luxury-gold-dark': 'var(--color-luxury-gold-dark)',
+                        'luxury-brown': 'var(--color-dark-brown)',
+                        'luxury-charcoal': 'var(--color-charcoal)',
+                        'cream': 'var(--color-cream)',
+                        'dark-brown': 'var(--color-dark-brown)',
+                        'warm-gray': 'var(--color-warm-gray)',
+                    },
+                    fontFamily: {
+                        cormorant: ['var(--font-cormorant)', 'serif'],
+                        serif: ['var(--font-serif)', 'serif'],
+                        sans: ['var(--font-sans)', 'sans-serif'],
+                    },
+                    spacing: {
+                        'xs': 'var(--spacing-xs)',
+                        'sm': 'var(--spacing-sm)',
+                        'md': 'var(--spacing-md)',
+                        'lg': 'var(--spacing-lg)',
+                        'xl': 'var(--spacing-xl)',
+                        'xxl': 'var(--spacing-xxl)',
+                    },
+                    borderRadius: {
+                        'sm': 'var(--radius-sm)',
+                        'md': 'var(--radius-md)',
+                        'lg': 'var(--radius-lg)',
+                    },
+                    boxShadow: {
+                        'premium': 'var(--shadow-premium)',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-luxury-cream text-luxury-brown flex flex-col min-h-screen">
+
+    <!-- Premium Pre-loader -->
+    <div id="full-page-loader" class="fixed inset-0 z-50 bg-luxury-cream flex flex-col items-center justify-center transition-opacity duration-500">
+        <div class="relative w-12 h-12 mb-4">
+            <div class="absolute inset-0 rounded-full border border-luxury-brown/10"></div>
+            <div class="absolute inset-0 rounded-full border border-t-luxury-gold border-r-transparent border-b-transparent border-l-transparent animate-spin"></div>
+        </div>
+        <span class="text-[9px] uppercase tracking-[0.3em] text-luxury-brown/40">Home Studio</span>
+    </div>
+
+    <!-- Reusable Navbar Injection -->
+    <div data-include="components/navbar.html"></div>
+
+    <!-- ─── Mobile Navigation Overlay (hardcoded for reliable DOM access) ─── -->
+
+    <!-- Backdrop: dark blurred overlay behind drawer -->
+    <div id="mobile-nav-backdrop"></div>
+
+    <!-- Drawer Panel: slides in from the right -->
+    <div id="mobile-nav-drawer" role="dialog" aria-modal="true" aria-label="Navigation menu">
+
+        <!-- Top bar: brand + close button -->
+        <div class="mnav-top">
+            <div class="mnav-brand">
+                <span class="mnav-brand-name">Home Studio</span>
+                <span class="mnav-brand-sub">Paris Style Interiors</span>
+            </div>
+            <button id="mobile-nav-close-btn" aria-label="Close navigation menu">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+                    <line x1="6"  y1="6"  x2="18" y2="18"/>
+                    <line x1="18" y1="6"  x2="6"  y2="18"/>
+                </svg>
+            </button>
+        </div>
+
+        <!-- The four navigation links -->
+        <div class="mnav-links">
+            <a href="collection.html?category=all"    class="mnav-link">Explore Categories</a>
+            <a href="index.html#collections-section"  class="mnav-link">Explore Collections</a>
+            <a href="index.html#bestsellers-section"  class="mnav-link">Bestsellers</a>
+            <a href="index.html#new-launches-section" class="mnav-link">New Arrivals</a>
+        </div>
+
+    </div><!-- #mobile-nav-drawer -->
+
+    <!-- Main Content Container -->
+    <main class="flex-grow pt-36 md:pt-40">
+        
+        <!-- STOA Paris Style Hero Section -->
+        <section class="px-4 md:px-8 pb-4 md:pb-8 reveal-on-scroll">
+            <a href="product.html" class="block relative w-full h-[70vh] md:h-[80vh] rounded-[20px] md:rounded-[28px] overflow-hidden shadow-premium group">
+                <!-- Autoplay Loop Muted Video -->
+                <video 
+                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-[20s] ease-in-out group-hover:scale-105 animate-slow-zoom" 
+                    autoplay 
+                    muted 
+                    loop 
+                    playsinline
+                >
+                    <source src="https://assets.mixkit.co/videos/preview/mixkit-interior-of-a-modern-living-room-with-luxury-furniture-41905-large.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                
+                <!-- Dark luxury overlay -->
+                <div class="absolute inset-0 bg-black/45 group-hover:bg-black/35 transition-colors duration-500"></div>
+
+                <!-- Bottom-Center Luxury Typography -->
+                <div class="absolute bottom-12 md:bottom-16 left-1/2 -translate-x-1/2 w-full max-w-2xl px-6 text-center z-10 flex flex-col items-center gap-2">
+                    <span class="text-[9px] md:text-[10px] tracking-[0.3em] text-white/70 font-semibold uppercase mb-1">Home Studio Paris</span>
+                    <h1 class="font-cormorant italic text-white text-4xl md:text-6.5xl lg:text-7xl font-light tracking-wide leading-tight drop-shadow-md transition-transform duration-500 group-hover:-translate-y-1">
+                        Bold Fashion for Homes
+                    </h1>
+                    <div class="w-12 h-[1px] bg-white/40 my-2 group-hover:w-20 transition-all duration-500"></div>
+                    <span class="text-[9px] md:text-[10px] tracking-[0.25em] uppercase text-white/60 font-semibold group-hover:text-white transition-colors duration-300">
+                        Discover Collection
+                    </span>
+                </div>
+            </a>
+        </section>
+
+        <!-- Bestsellers Section (STOA Paris Bedding Aesthetics) -->
+        <section id="bestsellers-section" class="py-16 md:py-24 bg-[#faf8f5] reveal-on-scroll">
+            <div class="luxury-container">
+                <!-- Section Header -->
+                <div class="text-center mb-10 md:mb-12">
+                    <h2 class="font-cormorant italic text-4xl md:text-5xl lg:text-5.5xl text-[#2c221e] font-light tracking-wide mb-3">
+                        Bestsellers
+                    </h2>
+                    <div class="w-16 h-[1.5px] bg-[#6b1b1b] mx-auto mb-4"></div>
+                    <p class="text-[9px] md:text-[10px] tracking-[0.25em] uppercase text-[#2c221e]/60 font-semibold">
+                        Premium Bedding & Bed Sheets Curation
+                    </p>
+                </div>
+
+                <!-- Product Grid (4-Column Grid Desktop, Drag/Swipe Slider Mobile with snap alignment) -->
+                <div id="bestsellers-grid" class="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-6 lg:grid lg:grid-cols-4 lg:gap-8 lg:overflow-x-visible lg:pb-0 no-scrollbar px-2 -mx-2">
+                    <!-- Dynamic product cards render here via JS -->
+                </div>
+                
+                <!-- View All Bestsellers Button -->
+                <div class="text-center mt-10 md:mt-12">
+                    <a href="collection.html?sort=price-high" class="inline-block border border-[#2c221e] text-[#2c221e] hover:bg-[#6b1b1b] hover:text-white hover:border-[#6b1b1b] text-xs font-bold uppercase tracking-[0.2em] py-3.5 px-8 rounded-xl transition-all duration-300 active:scale-95 shadow-sm">
+                        View All Bestsellers
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- New Launches Section (STOA Paris Bedding Aesthetics) -->
+        <section id="new-launches-section" class="py-16 md:py-24 bg-[#faf8f5] reveal-on-scroll border-t border-warm-gray/10">
+            <div class="luxury-container">
+                <!-- Section Header -->
+                <div class="text-center mb-10 md:mb-12">
+                    <h2 class="font-cormorant italic text-4xl md:text-5xl lg:text-5.5xl text-[#2c221e] font-light tracking-wide mb-3">
+                        New Launches
+                    </h2>
+                    <div class="w-16 h-[1.5px] bg-[#6b1b1b] mx-auto mb-4"></div>
+                    <p class="text-[9px] md:text-[10px] tracking-[0.25em] uppercase text-[#2c221e]/60 font-semibold">
+                        Fresh Additions & Contemporary Quilting
+                    </p>
+                </div>
+
+                <!-- Product Grid (4-Column Grid Desktop, Drag/Swipe Slider Mobile with snap alignment) -->
+                <div id="new-launches-grid" class="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-6 lg:grid lg:grid-cols-4 lg:gap-8 lg:overflow-x-visible lg:pb-0 no-scrollbar px-2 -mx-2">
+                    <!-- Dynamic product cards render here via JS -->
+                </div>
+
+                <!-- View All New Launches Button -->
+                <div class="text-center mt-10 md:mt-12">
+                    <a href="collection.html?sort=newest" class="inline-block border border-[#2c221e] text-[#2c221e] hover:bg-[#6b1b1b] hover:text-white hover:border-[#6b1b1b] text-xs font-bold uppercase tracking-[0.2em] py-3.5 px-8 rounded-xl transition-all duration-300 active:scale-95 shadow-sm">
+                        View All New Launches
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Style Your Space (Interactive Lifestyle Section) -->
+        <section class="py-16 md:py-24 bg-[#faf8f5] reveal-on-scroll border-t border-warm-gray/10">
+            <div class="luxury-container">
+                <!-- Section Header -->
+                <div class="text-center mb-12 md:mb-16">
+                    <h2 class="font-cormorant italic text-4xl md:text-5xl lg:text-5.5xl text-[#2c221e] font-light tracking-wide mb-3">
+                        Style Your Space
+                    </h2>
+                    <div class="w-16 h-[1.5px] bg-[#6b1b1b] mx-auto mb-4"></div>
+                    <p class="text-[9px] md:text-[10px] tracking-[0.25em] uppercase text-[#2c221e]/60 font-semibold">
+                        Shop Statement-Making Home Fashion
+                    </p>
+                </div>
+
+                <!-- Editorial Layout: Asymmetric Flex/Grid -->
+                <div class="flex flex-col lg:flex-row items-center lg:items-stretch gap-10 lg:gap-16">
+                    
+                    <!-- Left: Immersive Lifestyle Image with Pulse Hotspots -->
+                    <div class="relative w-full lg:w-[60%] rounded-2xl overflow-hidden shadow-premium aspect-[4/3] md:aspect-[16/10] bg-luxury-beige group">
+                        <img 
+                            src="https://images.unsplash.com/photo-1505693395321-883724634266?auto=format&fit=crop&q=80&w=1200" 
+                            alt="Luxury Bedding Lifestyle" 
+                            class="w-full h-full object-cover transition-transform duration-[2s] ease-out group-hover:scale-102"
+                        >
+                        <!-- Dark light overlay -->
+                        <div class="absolute inset-0 bg-black/10 group-hover:bg-black/5 transition-colors duration-500"></div>
+
+                        <!-- Hotspot 1 (Candle - bottom left) -->
+                        <button 
+                            class="hotspot-dot absolute top-[62%] left-[16%] w-5.5 h-5.5 bg-white border border-[#6b1b1b]/30 rounded-full cursor-pointer z-20 flex items-center justify-center active transition-all duration-300"
+                            data-index="0"
+                            aria-label="Shop Candle"
+                        >
+                            <span class="w-2 h-2 rounded-full bg-[#6b1b1b]"></span>
+                            <!-- Tooltip -->
+                            <span class="hotspot-tooltip absolute bottom-full mb-2 bg-[#2c221e]/95 backdrop-blur-sm text-white text-[9px] tracking-wider uppercase font-semibold py-1.5 px-3 rounded whitespace-nowrap opacity-0 transition-opacity pointer-events-none shadow-md">
+                                Parisian Scented Candle • ₹1,199
+                            </span>
+                        </button>
+
+                        <!-- Hotspot 2 (Pillows - center left) -->
+                        <button 
+                            class="hotspot-dot absolute top-[55%] left-[40%] w-5.5 h-5.5 bg-white border border-[#6b1b1b]/30 rounded-full cursor-pointer z-20 flex items-center justify-center transition-all duration-300"
+                            data-index="1"
+                            aria-label="Shop Pillow Set"
+                        >
+                            <span class="w-2 h-2 rounded-full bg-[#6b1b1b]"></span>
+                            <span class="hotspot-tooltip absolute bottom-full mb-2 bg-[#2c221e]/95 backdrop-blur-sm text-white text-[9px] tracking-wider uppercase font-semibold py-1.5 px-3 rounded whitespace-nowrap opacity-0 pointer-events-none shadow-md">
+                                Silk Pillow Cover Set • ₹3,499
+                            </span>
+                        </button>
+
+                        <!-- Hotspot 3 (Serving Tray - center right) -->
+                        <button 
+                            class="hotspot-dot absolute top-[55%] left-[68%] w-5.5 h-5.5 bg-white border border-[#6b1b1b]/30 rounded-full cursor-pointer z-20 flex items-center justify-center transition-all duration-300"
+                            data-index="2"
+                            aria-label="Shop Serving Tray"
+                        >
+                            <span class="w-2 h-2 rounded-full bg-[#6b1b1b]"></span>
+                            <span class="hotspot-tooltip absolute bottom-full mb-2 bg-[#2c221e]/95 backdrop-blur-sm text-white text-[9px] tracking-wider uppercase font-semibold py-1.5 px-3 rounded whitespace-nowrap opacity-0 pointer-events-none shadow-md">
+                                Cherry Blossom Serving Tray • ₹1,999
+                            </span>
+                        </button>
+
+                        <!-- Hotspot 4 (Curtains - top right) -->
+                        <button 
+                            class="hotspot-dot absolute top-[45%] left-[80%] w-5.5 h-5.5 bg-white border border-[#6b1b1b]/30 rounded-full cursor-pointer z-20 flex items-center justify-center transition-all duration-300"
+                            data-index="3"
+                            aria-label="Shop Velvet Curtains"
+                        >
+                            <span class="w-2 h-2 rounded-full bg-[#6b1b1b]"></span>
+                            <span class="hotspot-tooltip absolute bottom-full mb-2 bg-[#2c221e]/95 backdrop-blur-sm text-white text-[9px] tracking-wider uppercase font-semibold py-1.5 px-3 rounded whitespace-nowrap opacity-0 pointer-events-none shadow-md">
+                                Luxury Velvet Curtain Panel • ₹5,999
+                            </span>
+                        </button>
+                    </div>
+
+                    <!-- Right: Floating Luxury Recommendation Card -->
+                    <div class="w-full lg:w-[40%] flex flex-col justify-center items-center px-4 lg:px-0">
+                        <div id="style-space-card-container" class="w-full max-w-md lg:max-w-[360px] bg-transparent lg:bg-white rounded-2xl overflow-hidden shadow-none lg:shadow-premium border-0 lg:border lg:border-luxury-gold/5 flex flex-row lg:flex-col items-center lg:items-stretch gap-4 lg:gap-0 group transition-all duration-500 hover:shadow-none lg:hover:shadow-xl lg:hover:-translate-y-1.5">
+                            <!-- Product Content loaded dynamically -->
+                        </div>
+
+                        <!-- Slider dots under the card -->
+                        <div class="flex justify-center items-center gap-2 mt-6 lg:mt-8" id="style-space-dots">
+                            <button class="w-2.5 h-2.5 rounded-full bg-[#6b1b1b] transition-all duration-300" data-index="0" aria-label="Slide 1"></button>
+                            <button class="w-2 h-2 rounded-full bg-[#2c221e]/20 transition-all duration-300" data-index="1" aria-label="Slide 2"></button>
+                            <button class="w-2 h-2 rounded-full bg-[#2c221e]/20 transition-all duration-300" data-index="2" aria-label="Slide 3"></button>
+                            <button class="w-2 h-2 rounded-full bg-[#2c221e]/20 transition-all duration-300" data-index="3" aria-label="Slide 4"></button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Hotspot Custom styles scoped to this section -->
+        <style>
+            @keyframes hotspot-pulse {
+                0% {
+                    transform: scale(0.95);
+                    box-shadow: 0 0 0 0 rgba(107, 27, 27, 0.5);
+                }
+                70% {
+                    transform: scale(1.1);
+                    box-shadow: 0 0 0 8px rgba(107, 27, 27, 0);
+                }
+                100% {
+                    transform: scale(0.95);
+                    box-shadow: 0 0 0 0 rgba(107, 27, 27, 0);
+                }
+            }
+            .hotspot-dot {
+                position: absolute;
+                transform: translate(-50%, -50%);
+            }
+            .hotspot-dot::before {
+                content: '';
+                position: absolute;
+                top: -6px;
+                left: -6px;
+                right: -6px;
+                bottom: -6px;
+                border-radius: 50%;
+                border: 1px solid rgba(107, 27, 27, 0.4);
+                animation: hotspot-pulse 2s infinite;
+                pointer-events: none;
+            }
+            .hotspot-dot.active {
+                background-color: #6b1b1b !important;
+                border-color: #6b1b1b !important;
+            }
+            .hotspot-dot.active span {
+                background-color: #ffffff !important;
+            }
+            .hotspot-dot:hover .hotspot-tooltip {
+                opacity: 1;
+            }
+        </style>
+
+        </section>
+
+        <!-- Shop Collections (Horizontal Slider Carousel) -->
+        <section id="collections-section" class="py-16 md:py-24 bg-[#faf8f5] reveal-on-scroll border-t border-warm-gray/10">
+            <div class="luxury-container">
+                <!-- Section Header with Arrows on far right -->
+                <div class="flex items-center justify-between mb-10 md:mb-12">
+                    <div class="hidden md:block w-24"></div> <!-- Spacer for centering title on desktop -->
+                    <div class="text-center flex-grow">
+                        <h2 class="font-cormorant italic text-4xl md:text-5xl lg:text-5.5xl text-[#2c221e] font-light tracking-wide mb-3">
+                            Shop Collections
+                        </h2>
+                        <div class="w-16 h-[1.5px] bg-[#6b1b1b] mx-auto"></div>
+                    </div>
+                    <!-- Navigation Arrows -->
+                    <div class="flex items-center gap-2.5 shrink-0">
+                        <button id="collections-prev" class="w-9 h-9 md:w-10 md:h-10 rounded-full border border-[#2c221e]/20 flex items-center justify-center text-[#2c221e]/80 hover:bg-[#6b1b1b] hover:text-white hover:border-[#6b1b1b] transition-all duration-300 active:scale-95 shadow-sm" aria-label="Previous Slide">
+                            <svg class="w-4 h-4 stroke-current fill-none" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M15 19l-7-7 7-7" />
+                            </svg>
+                        </button>
+                        <button id="collections-next" class="w-9 h-9 md:w-10 md:h-10 rounded-full border border-[#2c221e]/20 flex items-center justify-center text-[#2c221e]/80 hover:bg-[#6b1b1b] hover:text-white hover:border-[#6b1b1b] transition-all duration-300 active:scale-95 shadow-sm" aria-label="Next Slide">
+                            <svg class="w-4 h-4 stroke-current fill-none" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 5l7 7-7 7" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Carousel Slider container -->
+                <div id="collections-carousel" class="flex gap-6 overflow-x-auto snap-x snap-mandatory scroll-smooth no-scrollbar pb-6 px-2 -mx-2">
+                    
+                    <!-- Collection 1: Imperial Satin -->
+                    <a href="collection.html?id=satin" class="snap-start shrink-0 w-[65%] sm:w-[45%] md:w-[35%] lg:w-[23%] group">
+                        <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-luxury-gold/5 flex flex-col justify-between h-full transition-all duration-500 hover:-translate-y-1.5 hover:shadow-md">
+                            <!-- Image Container -->
+                            <div class="relative aspect-[16/10] overflow-hidden bg-luxury-beige">
+                                <span class="absolute top-3.5 left-3.5 bg-[#6b1b1b] text-white text-[8px] md:text-[9px] uppercase tracking-[0.2em] font-bold py-1 px-3.5 rounded-full z-10 shadow-sm">
+                                    Bestseller
+                                </span>
+                                <img src="https://images.unsplash.com/photo-1505693395321-883724634266?auto=format&fit=crop&q=80&w=800" alt="Imperial Satin Collection" class="w-full h-full object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-105">
+                            </div>
+                            <!-- Details Bottom -->
+                            <div class="p-5 bg-[#fbfaf8] flex items-center justify-between border-t border-[#f3eee6]">
+                                <div>
+                                    <h3 class="font-cormorant italic text-lg md:text-xl text-[#2c221e] mb-0.5 group-hover:text-[#6b1b1b] transition-colors">Imperial Satin</h3>
+                                    <p class="text-[10px] tracking-wider uppercase text-[#2c221e]/50 font-semibold font-sans">1200 TC Bedroom Sets</p>
+                                </div>
+                                <!-- arrow icon -->
+                                <div class="w-8 h-8 rounded-full border border-[#2c221e]/15 flex items-center justify-center text-[#2c221e] group-hover:bg-[#6b1b1b] group-hover:text-white group-hover:border-[#6b1b1b] transition-all duration-300 shrink-0 ml-3">
+                                    <svg class="w-4.5 h-4.5 stroke-current fill-none" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 5l7 7-7 7" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Collection 2: French Flax Linen -->
+                    <a href="collection.html?id=linen" class="snap-start shrink-0 w-[65%] sm:w-[45%] md:w-[35%] lg:w-[23%] group">
+                        <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-luxury-gold/5 flex flex-col justify-between h-full transition-all duration-500 hover:-translate-y-1.5 hover:shadow-md">
+                            <!-- Image Container -->
+                            <div class="relative aspect-[16/10] overflow-hidden bg-luxury-beige">
+                                <span class="absolute top-3.5 left-3.5 bg-[#6b1b1b] text-white text-[8px] md:text-[9px] uppercase tracking-[0.2em] font-bold py-1 px-3.5 rounded-full z-10 shadow-sm">
+                                    New Launch
+                                </span>
+                                <img src="https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&q=80&w=800" alt="French Flax Linen Collection" class="w-full h-full object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-105">
+                            </div>
+                            <!-- Details Bottom -->
+                            <div class="p-5 bg-[#fbfaf8] flex items-center justify-between border-t border-[#f3eee6]">
+                                <div>
+                                    <h3 class="font-cormorant italic text-lg md:text-xl text-[#2c221e] mb-0.5 group-hover:text-[#6b1b1b] transition-colors">French Flax Linen</h3>
+                                    <p class="text-[10px] tracking-wider uppercase text-[#2c221e]/50 font-semibold font-sans">Organic Bedding</p>
+                                </div>
+                                <!-- arrow icon -->
+                                <div class="w-8 h-8 rounded-full border border-[#2c221e]/15 flex items-center justify-center text-[#2c221e] group-hover:bg-[#6b1b1b] group-hover:text-white group-hover:border-[#6b1b1b] transition-all duration-300 shrink-0 ml-3">
+                                    <svg class="w-4.5 h-4.5 stroke-current fill-none" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 5l7 7-7 7" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Collection 3: Velvet Stitch Quilts -->
+                    <a href="collection.html?id=quilts" class="snap-start shrink-0 w-[65%] sm:w-[45%] md:w-[35%] lg:w-[23%] group">
+                        <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-luxury-gold/5 flex flex-col justify-between h-full transition-all duration-500 hover:-translate-y-1.5 hover:shadow-md">
+                            <!-- Image Container -->
+                            <div class="relative aspect-[16/10] overflow-hidden bg-luxury-beige">
+                                <span class="absolute top-3.5 left-3.5 bg-[#6b1b1b] text-white text-[8px] md:text-[9px] uppercase tracking-[0.2em] font-bold py-1 px-3.5 rounded-full z-10 shadow-sm">
+                                    New Launch
+                                </span>
+                                <img src="https://images.unsplash.com/photo-1584100936595-c0654b55a2e6?auto=format&fit=crop&q=80&w=800" alt="Velvet Stitch Quilt Collection" class="w-full h-full object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-105">
+                            </div>
+                            <!-- Details Bottom -->
+                            <div class="p-5 bg-[#fbfaf8] flex items-center justify-between border-t border-[#f3eee6]">
+                                <div>
+                                    <h3 class="font-cormorant italic text-lg md:text-xl text-[#2c221e] mb-0.5 group-hover:text-[#6b1b1b] transition-colors">Velvet Stitch</h3>
+                                    <p class="text-[10px] tracking-wider uppercase text-[#2c221e]/50 font-semibold font-sans">Hand-Quilted Sets</p>
+                                </div>
+                                <!-- arrow icon -->
+                                <div class="w-8 h-8 rounded-full border border-[#2c221e]/15 flex items-center justify-center text-[#2c221e] group-hover:bg-[#6b1b1b] group-hover:text-white group-hover:border-[#6b1b1b] transition-all duration-300 shrink-0 ml-3">
+                                    <svg class="w-4.5 h-4.5 stroke-current fill-none" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 5l7 7-7 7" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Collection 4: Mulberry Silk Accents -->
+                    <a href="collection.html?id=silk" class="snap-start shrink-0 w-[65%] sm:w-[45%] md:w-[35%] lg:w-[23%] group">
+                        <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-luxury-gold/5 flex flex-col justify-between h-full transition-all duration-500 hover:-translate-y-1.5 hover:shadow-md">
+                            <!-- Image Container -->
+                            <div class="relative aspect-[16/10] overflow-hidden bg-luxury-beige">
+                                <span class="absolute top-3.5 left-3.5 bg-[#6b1b1b] text-white text-[8px] md:text-[9px] uppercase tracking-[0.2em] font-bold py-1 px-3.5 rounded-full z-10 shadow-sm">
+                                    Bestseller
+                                </span>
+                                <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&q=80&w=800" alt="Mulberry Silk Accents" class="w-full h-full object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-105">
+                            </div>
+                            <!-- Details Bottom -->
+                            <div class="p-5 bg-[#fbfaf8] flex items-center justify-between border-t border-[#f3eee6]">
+                                <div>
+                                    <h3 class="font-cormorant italic text-lg md:text-xl text-[#2c221e] mb-0.5 group-hover:text-[#6b1b1b] transition-colors">Mulberry Silk</h3>
+                                    <p class="text-[10px] tracking-wider uppercase text-[#2c221e]/50 font-semibold font-sans">Anti-Aging Accents</p>
+                                </div>
+                                <!-- arrow icon -->
+                                <div class="w-8 h-8 rounded-full border border-[#2c221e]/15 flex items-center justify-center text-[#2c221e] group-hover:bg-[#6b1b1b] group-hover:text-white group-hover:border-[#6b1b1b] transition-all duration-300 shrink-0 ml-3">
+                                    <svg class="w-4.5 h-4.5 stroke-current fill-none" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 5l7 7-7 7" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+
+                </div>
+
+                <!-- View All Collections Button -->
+                <div class="text-center mt-10 md:mt-12">
+                    <a href="collection.html" class="inline-block border border-[#2c221e] text-[#2c221e] hover:bg-[#6b1b1b] hover:text-white hover:border-[#6b1b1b] text-xs font-bold uppercase tracking-[0.2em] py-3.5 px-8 rounded-xl transition-all duration-300 active:scale-95 shadow-sm">
+                        View All Collections
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Handcrafted Heritage Storytelling Section (Replaces Curated Rooms) -->
+        <section class="py-16 md:py-24 bg-white reveal-on-scroll border-t border-warm-gray/10">
+            <div class="luxury-container">
+                <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+                    
+                    <!-- Left Side: Editorial Lifestyle Image of Handloom/Artisanship -->
+                    <div class="w-full lg:w-1/2 rounded-2xl overflow-hidden shadow-premium aspect-[4/3] md:aspect-[16/10] bg-luxury-beige group relative">
+                        <img 
+                            src="https://images.unsplash.com/photo-1598514982205-f36b96d1e8d4?auto=format&fit=crop&q=80&w=1200" 
+                            alt="Master artisans handloom bedding weaving process" 
+                            class="w-full h-full object-cover transition-transform duration-[2s] ease-out group-hover:scale-103"
+                        >
+                        <!-- Dark soft overlay -->
+                        <div class="absolute inset-0 bg-black/10 group-hover:bg-black/5 transition-colors duration-500"></div>
+                        <!-- Little subtle tag at bottom left -->
+                        <span class="absolute bottom-5 left-5 bg-white/90 backdrop-blur-sm text-[#2c221e] text-[9px] font-bold py-1.5 px-3 rounded-full uppercase tracking-widest font-sans shadow-sm">
+                            Artisan Weaving Studio
+                        </span>
+                    </div>
+
+                    <!-- Right Side: Luxury Typography & Descriptive Copy -->
+                    <div class="w-full lg:w-1/2 flex flex-col justify-center text-left">
+                        <!-- Category/Accent tag -->
+                        <span class="text-[9px] md:text-[10px] tracking-[0.25em] uppercase text-[#6b1b1b] font-bold mb-3 block">
+                            Our Artisanal Process
+                        </span>
+                        
+                        <!-- Main Heading -->
+                        <h2 class="font-cormorant italic text-3.5xl md:text-4.5xl lg:text-5xl text-[#2c221e] font-light leading-tight tracking-wide mb-6">
+                            Woven Heritage: Handcrafted Luxury For Your Sanctuary
+                        </h2>
+                        
+                        <!-- Divider -->
+                        <div class="w-12 h-[1.5px] bg-[#6b1b1b] mb-6"></div>
+                        
+                        <!-- Rich Paragraphs -->
+                        <div class="space-y-4 text-xs md:text-sm text-[#2c221e]/70 leading-relaxed font-sans font-medium">
+                            <p>
+                                At Home Studio, we believe luxury is a slow craft. Our bedding and accents are born in the hands of master weavers who have preserved the ancient art of handloom weaving across generations. Each thread is carefully selected, carded, and spun to create a fabric that is uniquely irregular, breathable, and rich in texture.
+                            </p>
+                            <p>
+                                Unlike automated machine production, handloom weaving preserves the natural integrity of long-staple organic fibers. Each pillow sleeve, satin sheet, and hand-stitched comforter holds the subtle imprint of the artisan's hands—making no two pieces exactly alike.
+                            </p>
+                            <p class="italic text-[#6b1b1b]/80 font-serif text-sm">
+                                "We do not just weave threads; we weave stories of comfort, legacy, and pure, tactile luxury."
+                            </p>
+                        </div>
+
+                        <!-- CTA Explore Link -->
+                        <div class="mt-8">
+                            <a href="collection.html" class="inline-flex items-center gap-2 group text-[10px] font-bold uppercase tracking-[0.2em] text-[#2c221e] hover:text-[#6b1b1b] transition-colors duration-300">
+                                <span>Discover Our Heritage Craft</span>
+                                <svg class="w-4 h-4 stroke-current fill-none transition-transform duration-300 group-hover:translate-x-1" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Products Grid Section -->
+        <section class="py-16 md:py-24 bg-white reveal-on-scroll">
+            <div class="luxury-container">
+                <h2 class="text-center font-serif text-3xl md:text-4xl mb-4">The Collection</h2>
+                <p class="text-center text-xs tracking-widest uppercase text-luxury-brown/50 mb-12">Exquisite craftsmanship, contemporary contours</p>
+                <div id="featured-products-grid" class="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-6 lg:grid lg:grid-cols-4 lg:gap-8 lg:overflow-x-visible lg:pb-0 no-scrollbar px-2 -mx-2">
+                    <!-- Products rendered synchronously here -->
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Reusable Footer Injection -->
+    <div data-include="components/footer.html"></div>
+
+    <!-- Scripts Injection -->
+    <script type="module" src="js/app.js"></script>
+    <script type="module">
+        import { getProducts, createProductCardMarkup } from './js/products.js';
+        import { getBestsellers, getNewLaunches } from './js/firebase.js';
+
+        // Helper to bind events to cards in a grid container
+        function bindCardEvents(grid) {
+            if (!grid) return;
+            
+            // Redirect to Product Detail Page (PDP)
+            grid.querySelectorAll('.buy-now-btn, .card-title, .bestsellers-card-title, .new-launches-card-title').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const card = e.target.closest('[data-id]');
+                    if (card) {
+                        const id = card.getAttribute('data-id');
+                        window.location.href = `product.html?id=${id}`;
+                    }
+                });
+            });
+
+            // Floating Add to Cart interaction
+            grid.querySelectorAll('.add-to-cart-floating').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    e.preventDefault();
+                    const card = e.target.closest('[data-id]');
+                    if (card) {
+                        const id = card.getAttribute('data-id');
+                        
+                        // Increment bag badge count
+                        const cartCountElement = document.getElementById('cart-badge');
+                        if (cartCountElement) {
+                            let currentCount = parseInt(cartCountElement.textContent || '0', 10);
+                            cartCountElement.textContent = currentCount + 1;
+                            cartCountElement.classList.remove('hidden');
+                            
+                            cartCountElement.classList.add('scale-125');
+                            setTimeout(() => cartCountElement.classList.remove('scale-125'), 300);
+                        }
+                        
+                        // Micro toast notification
+                        const alertDiv = document.createElement('div');
+                        alertDiv.className = "fixed bottom-5 right-5 bg-[#2c221e] text-white text-xs tracking-wider uppercase px-5 py-3.5 rounded-lg shadow-lg z-50 transition-all duration-500 transform translate-y-10 opacity-0";
+                        alertDiv.textContent = "Added to Bag";
+                        document.body.appendChild(alertDiv);
+                        
+                        setTimeout(() => {
+                            alertDiv.classList.remove('translate-y-10', 'opacity-0');
+                        }, 50);
+                        
+                        setTimeout(() => {
+                            alertDiv.classList.add('translate-y-10', 'opacity-0');
+                            setTimeout(() => alertDiv.remove(), 500);
+                        }, 2500);
+                    }
+                });
+            });
+        }
+
+
+        // Style Your Space default local mock dataset (falls back dynamically if Firestore offline)
+        const styleSpaceProducts = [
+            {
+                id: "stoa-candle-1",
+                name: "Parisian Amber Scented Soy Candle",
+                originalPrice: 2399,
+                price: 1199,
+                discount: "50% OFF",
+                rating: "4.9",
+                image: "https://images.unsplash.com/photo-1603006905003-be475563bc59?auto=format&fit=crop&q=80&w=800",
+                badge: "Bestseller"
+            },
+            {
+                id: "stoa-pillow-1-sys",
+                name: "Silk Pillow Cover Set of 2 (Soft/Firm)",
+                originalPrice: 6999,
+                price: 3499,
+                discount: "50% OFF",
+                rating: "4.8",
+                image: "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&q=80&w=800",
+                badge: "Bestseller"
+            },
+            {
+                id: "stoa-tray-1",
+                name: "Paris in Cherry Blossom Serving Tray",
+                originalPrice: 3999,
+                price: 1999,
+                discount: "50% OFF",
+                rating: "4.9",
+                image: "https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&q=80&w=800",
+                badge: "Bestseller"
+            },
+            {
+                id: "stoa-curtain-1",
+                name: "Luxury Velvet Curtain Panel (Single)",
+                originalPrice: 11999,
+                price: 5999,
+                discount: "50% OFF",
+                rating: "4.7",
+                image: "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&q=80&w=800",
+                badge: "Bestseller"
+            }
+        ];
+
+        function renderStyleSpaceCard(index) {
+            const container = document.getElementById('style-space-card-container');
+            if (!container) return;
+
+            const p = styleSpaceProducts[index];
+            const formatter = {
+                format: (val) => {
+                    const num = parseFloat(val);
+                    if (isNaN(num)) return '₹0';
+                    if (num % 1 === 0) {
+                        return '₹' + num.toLocaleString('en-IN');
+                    } else {
+                        return '₹' + num.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+                    }
+                }
+            };
+
+            container.innerHTML = `
+                <!-- Image Area: thumbnail on mobile, full width on desktop -->
+                <div class="relative w-20 h-20 min-w-[80px] lg:w-full lg:h-auto lg:aspect-[4/5] overflow-hidden bg-luxury-beige rounded-xl lg:rounded-none shrink-0 shadow-sm lg:shadow-none">
+                    <!-- Bestseller Ribbon Badge (lg only) -->
+                    <span class="hidden lg:inline-block absolute top-3.5 left-3.5 bg-[#6b1b1b] text-white text-[8px] md:text-[9px] uppercase tracking-[0.2em] font-bold py-1 px-3.5 rounded-full z-10 shadow-sm">
+                        ${p.badge || 'Bestseller'}
+                    </span>
+                    <!-- Rating Badge (lg only) -->
+                    <span class="hidden lg:flex absolute top-3.5 right-3.5 bg-white/90 backdrop-blur-sm text-[#2c221e] text-[10px] font-bold py-1 px-2.5 rounded-full z-10 items-center gap-1 shadow-sm">
+                        <span class="text-amber-500">★</span> ${p.rating || '4.5'}
+                    </span>
+                    <!-- Product Image with Zoom -->
+                    <img src="${p.image}" alt="${p.name}" class="w-full h-full object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-105">
+                </div>
+
+                <!-- Details: Flex row on mobile, Flex column on desktop -->
+                <div class="flex-grow flex flex-row lg:flex-col items-center lg:items-stretch justify-between pl-1 lg:pl-0 lg:p-5 bg-transparent lg:bg-[#fbfaf8]">
+                    <div class="flex-grow lg:mb-4 pr-3 lg:pr-0 text-left">
+                        <!-- Title -->
+                        <h3 class="font-sans text-[13px] md:text-sm font-semibold tracking-wide text-[#2c221e] line-clamp-2 leading-snug mb-1 lg:mb-2 hover:text-[#6b1b1b] transition-colors cursor-pointer style-space-card-title">
+                            ${p.name}
+                        </h3>
+                        
+                        <!-- Pricing -->
+                        <div class="flex items-center gap-2 flex-wrap">
+                            ${p.originalPrice && p.originalPrice > p.price ? `<span class="text-xs text-[#2c221e]/40 line-through font-medium">${formatter.format(p.originalPrice)}</span>` : ''}
+                            <span class="text-sm lg:text-base font-bold text-[#6b1b1b]">${formatter.format(p.price)}</span>
+                            ${p.discount ? `<span class="bg-[#6b1b1b]/10 text-[#6b1b1b] text-[9px] font-bold px-1.5 py-0.5 rounded tracking-wider uppercase font-sans">${p.discount}</span>` : ''}
+                        </div>
+                    </div>
+
+                    <!-- Buy / View Action -->
+                    <div class="shrink-0">
+                        <!-- Mobile View Button -->
+                        <button class="lg:hidden bg-[#1e1411] text-white text-[11px] font-bold py-2.5 px-5 rounded-full flex items-center gap-1.5 hover:bg-[#6b1b1b] active:scale-[0.98] transition-all duration-300 style-space-buy-btn shadow-sm">
+                            <span class="text-xs">+</span> View
+                        </button>
+                        <!-- Desktop Buy Button -->
+                        <button class="hidden lg:block w-full bg-[#6b1b1b] text-white text-[9px] md:text-[10px] font-bold uppercase tracking-[0.18em] py-3 rounded-xl transition-all duration-300 hover:bg-[#521212] active:scale-[0.98] shadow-sm style-space-buy-btn">
+                            Shop This Look
+                        </button>
+                    </div>
+                </div>
+            `;
+
+            // Bind click triggers
+            container.querySelectorAll('.style-space-buy-btn, .style-space-card-title').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    window.location.href = `product.html?id=${p.id}`;
+                });
+            });
+
+            // Update bottom slider dots state
+            const dots = document.querySelectorAll('#style-space-dots button');
+            dots.forEach((dot, dIndex) => {
+                if (dIndex === index) {
+                    dot.className = "w-2.5 h-2.5 rounded-full bg-[#6b1b1b] transition-all duration-300";
+                } else {
+                    dot.className = "w-2 h-2 rounded-full bg-[#2c221e]/20 transition-all duration-300";
+                }
+            });
+
+            // Update hotspot active states
+            const hotspots = document.querySelectorAll('.hotspot-dot');
+            hotspots.forEach((hs, hIndex) => {
+                if (hIndex === index) {
+                    hs.classList.add('active');
+                } else {
+                    hs.classList.remove('active');
+                }
+            });
+        }
+
+        function initStyleSpaceInteractions() {
+            // Render initial card
+            renderStyleSpaceCard(0);
+
+            // Bind Hotspot Clicks
+            const hotspots = document.querySelectorAll('.hotspot-dot');
+            hotspots.forEach(hs => {
+                hs.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const index = parseInt(hs.getAttribute('data-index'), 10);
+                    renderStyleSpaceCard(index);
+                });
+            });
+
+            // Bind Slider Dot Clicks
+            const dots = document.querySelectorAll('#style-space-dots button');
+            dots.forEach(dot => {
+                dot.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const index = parseInt(dot.getAttribute('data-index'), 10);
+                    renderStyleSpaceCard(index);
+                });
+            });
+        }
+
+        function initCollectionsCarousel() {
+            const carousel = document.getElementById('collections-carousel');
+            const prevBtn = document.getElementById('collections-prev');
+            const nextBtn = document.getElementById('collections-next');
+            if (!carousel || !prevBtn || !nextBtn) return;
+
+            const getScrollAmount = () => {
+                const firstCard = carousel.querySelector('a');
+                if (firstCard) {
+                    return firstCard.offsetWidth + 24; // card width + gap
+                }
+                return 300;
+            };
+
+            prevBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                carousel.scrollBy({
+                    left: -getScrollAmount(),
+                    behavior: 'smooth'
+                });
+            });
+
+            nextBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                carousel.scrollBy({
+                    left: getScrollAmount(),
+                    behavior: 'smooth'
+                });
+            });
+        }
+        
+        // ── Helper: render an empty-state card into a grid ──────────────────
+        function renderEmptyState(grid, message = 'No products yet.') {
+            grid.innerHTML = `
+                <div class="col-span-full py-16 text-center flex flex-col items-center justify-center bg-white rounded-2xl border border-luxury-gold/5 shadow-sm p-8 w-full min-w-[285px] lg:min-w-0">
+                    <p class="font-cormorant italic text-lg text-[#2c221e]/80">${message}</p>
+                </div>`;
+        }
+
+        // Wait for page component hydration, then load products live from Firestore
+        async function init() {
+            const featuredGrid     = document.getElementById('featured-products-grid');
+            const bestsellersGrid  = document.getElementById('bestsellers-grid');
+            const newLaunchesGrid  = document.getElementById('new-launches-grid');
+
+            try {
+                // ── Parallel Firestore queries ─────────────────────────────────
+                const [featured, bestsellers, newLaunches] = await Promise.all([
+                    getProducts(),        // featured row (first 4 from hardcoded list / Firestore)
+                    getBestsellers(),     // isBestseller == true
+                    getNewLaunches()      // isNewLaunch  == true, ordered by createdAt desc
+                ]);
+
+                // ── Featured Row ───────────────────────────────────────────────
+                if (featuredGrid) {
+                    const items = featured.slice(0, 4);
+                    if (items.length === 0) {
+                        renderEmptyState(featuredGrid, 'No featured products yet.');
+                    } else {
+                        featuredGrid.innerHTML = items.map(p => {
+                            p.isFeatured = true;
+                            return createProductCardMarkup(p);
+                        }).join('');
+                        bindCardEvents(featuredGrid);
+                    }
+                }
+
+                // ── Bestsellers ────────────────────────────────────────────────
+                if (bestsellersGrid) {
+                    if (bestsellers.length === 0) {
+                        renderEmptyState(bestsellersGrid, 'No bestsellers tagged yet.');
+                    } else {
+                        bestsellersGrid.innerHTML = bestsellers.map(p => createProductCardMarkup(p)).join('');
+                        bindCardEvents(bestsellersGrid);
+                    }
+                }
+
+                // ── New Launches ───────────────────────────────────────────────
+                if (newLaunchesGrid) {
+                    if (newLaunches.length === 0) {
+                        renderEmptyState(newLaunchesGrid, 'No new launches tagged yet.');
+                    } else {
+                        newLaunchesGrid.innerHTML = newLaunches.map((p, i) => {
+                            p.isFeatured = (i === 0);
+                            return createProductCardMarkup(p);
+                        }).join('');
+                        bindCardEvents(newLaunchesGrid);
+                    }
+                }
+
+                // Style Your Space + Collections Carousel (unchanged)
+                initStyleSpaceInteractions();
+                initCollectionsCarousel();
+
+            } catch (err) {
+                // ── Immediately clear all skeleton loaders ──────────────────────────────
+                // Log the exact raw error so it can be inspected in DevTools
+                console.error(err);
+                console.error("[Homepage] Product fetch failed. Clearing skeletons and displaying error message.");
+
+                const errorHtml = `
+                    <div class="col-span-full py-16 text-center flex flex-col items-center justify-center bg-white rounded-2xl border border-luxury-gold/5 shadow-sm p-8 w-full min-w-[285px] lg:min-w-0">
+                        <!-- Error Icon -->
+                        <div class="w-12 h-12 rounded-full bg-[#6b1b1b]/8 flex items-center justify-center mb-5">
+                            <svg class="w-6 h-6 text-[#6b1b1b]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" />
+                            </svg>
+                        </div>
+                        <!-- Primary Message -->
+                        <p class="font-cormorant italic text-2xl text-[#2c221e]/85 mb-2">Failed to load products. Please try again.</p>
+                        <!-- Secondary hint -->
+                        <p class="text-[10px] text-[#2c221e]/45 uppercase tracking-widest font-sans font-semibold mb-6">Unable to connect to the catalog. Check your connection and retry.</p>
+                        <!-- Retry Button -->
+                        <button
+                            id="retry-load-products"
+                            onclick="window.location.reload()"
+                            class="inline-flex items-center gap-2 bg-[#6b1b1b] text-white text-[10px] font-bold uppercase tracking-[0.2em] py-3 px-7 rounded-xl hover:bg-[#521212] active:scale-[0.98] transition-all duration-300 shadow-sm"
+                        >
+                            Retry
+                        </button>
+                    </div>
+                `;
+
+                // Replace all three skeleton grids immediately
+                if (featuredGrid) featuredGrid.innerHTML = errorHtml;
+                if (bestsellersGrid) bestsellersGrid.innerHTML = errorHtml;
+                if (newLaunchesGrid) newLaunchesGrid.innerHTML = errorHtml;
+            }
+        }
+
+        if (window.__componentsLoaded) {
+            init();
+        } else {
+            document.addEventListener('componentsLoaded', init);
+        }
+    </script>
+</body>
+</html>

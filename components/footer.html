@@ -1,0 +1,79 @@
+<!-- 
+  Home Studio - Reusable Luxury Footer
+  Dynamic inclusion: data-include="components/footer.html"
+-->
+<footer class="bg-dark-brown text-cream pt-16 pb-8 border-t border-t-warm-gray/10">
+    <div class="luxury-container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+        
+        <!-- Column 1: Brand Info -->
+        <div class="flex flex-col justify-between">
+            <div>
+                <span class="text-xl font-semibold tracking-[0.2em] uppercase text-white block mb-3">HOME STUDIO</span>
+                <p class="text-xs text-cream/60 leading-relaxed max-w-xs mb-6">
+                    Curators of premium luxury living spaces. Crafted, high-end, D2C furnishings that represent the intersection of comfort and high art.
+                </p>
+            </div>
+            <!-- Contact -->
+            <div class="text-xs text-cream/40">
+                <p class="mb-1">showroom: 104 Luxury Avenue, NY</p>
+                <p>support: contact@homestudio.luxury</p>
+            </div>
+        </div>
+
+        <!-- Column 2: Navigation Collections -->
+        <div>
+            <span class="text-xs uppercase tracking-[0.2em] font-semibold text-luxury-gold block mb-6">Shop Collections</span>
+            <ul class="flex flex-col gap-3 text-xs text-cream/70">
+                <li><a href="collection.html?category=living" class="hover:text-white transition-colors">Living Room Collection</a></li>
+                <li><a href="collection.html?category=bedroom" class="hover:text-white transition-colors">Master Bedroom Suite</a></li>
+                <li><a href="collection.html?category=dining" class="hover:text-white transition-colors">Dining Hall Elegance</a></li>
+                <li><a href="collection.html?category=lighting" class="hover:text-white transition-colors">Premium Sculptural Lighting</a></li>
+            </ul>
+        </div>
+
+        <!-- Column 3: Corporate Links -->
+        <div>
+            <span class="text-xs uppercase tracking-[0.2em] font-semibold text-luxury-gold block mb-6">Our Services</span>
+            <ul class="flex flex-col gap-3 text-xs text-cream/70">
+                <li><a href="#" class="hover:text-white transition-colors">Personal Showroom Consultation</a></li>
+                <li><a href="#" class="hover:text-white transition-colors">Complimentary Interior Styling</a></li>
+                <li><a href="#" class="hover:text-white transition-colors">White-Glove Delivery Services</a></li>
+                <li><a href="#" class="hover:text-white transition-colors">Care & Refurbishment Guide</a></li>
+            </ul>
+        </div>
+
+        <!-- Column 4: Newsletter -->
+        <div>
+            <span class="text-xs uppercase tracking-[0.2em] font-semibold text-luxury-gold block mb-4">Newsletter</span>
+            <p class="text-xs text-cream/60 leading-relaxed mb-6">
+                Receive invitation access to seasonal preview catalogues.
+            </p>
+            <form class="flex flex-col gap-2" onsubmit="event.preventDefault(); alert('Thank you for subscribing to Home Studio updates.');">
+                <div class="relative border-b border-cream/20 focus-within:border-luxury-gold transition-colors py-2 flex items-center">
+                    <input 
+                        type="email" 
+                        placeholder="Enter email address" 
+                        class="bg-transparent border-none text-white text-xs w-full focus:ring-0 focus:outline-none placeholder-cream/30"
+                        required
+                    />
+                    <button type="submit" class="text-luxury-gold hover:text-white transition-colors p-1" aria-label="Subscribe">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                        </svg>
+                    </button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+    <!-- Bottom Copyright -->
+    <div class="luxury-container border-t border-cream/5 pt-8 flex flex-col md:flex-row items-center justify-between text-[10px] tracking-widest text-cream/40 uppercase gap-4">
+        <div>&copy; 2026 Home Studio Interiors. All Rights Reserved.</div>
+        <div class="flex gap-6">
+            <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+            <a href="#" class="hover:text-white transition-colors">Terms of Purchase</a>
+            <a href="#" class="hover:text-white transition-colors">Helpline</a>
+        </div>
+    </div>
+</footer>

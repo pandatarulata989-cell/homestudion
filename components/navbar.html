@@ -1,0 +1,69 @@
+<!-- 
+  Home Studio - Navbar Component
+  Loaded dynamically via: data-include="components/navbar.html"
+  Mobile nav styles: css/mobile-nav.css (loaded in <head> of every page)
+  NOTE: The mobile backdrop (#mobile-nav-backdrop) and drawer (#mobile-nav-drawer)
+        are hardcoded directly in each page's <body> for reliable DOM availability.
+-->
+<div class="fixed top-0 left-0 w-full z-40 flex flex-col transition-all duration-300">
+
+    <!-- Announcement Bar -->
+    <div class="bg-[#2c221e] text-[#faf8f5] text-[10px] md:text-xs tracking-[0.2em] uppercase py-2.5 px-4 text-center font-medium font-sans border-b border-white/5">
+        Free Complimentary Delivery &amp; White-Glove Installation on All Orders
+    </div>
+
+    <!-- Header -->
+    <header class="bg-[#faf8f5]/95 backdrop-blur-md border-b border-warm-gray/10 rounded-b-2xl md:rounded-b-[24px] px-6 md:px-12 py-4 md:py-5 flex items-center justify-between transition-all duration-300">
+
+        <!-- Logo -->
+        <a href="index.html" class="flex flex-col group flex-shrink-0">
+            <span class="text-xl md:text-2xl font-bold tracking-[0.18em] text-[#2c221e] font-serif uppercase group-hover:text-luxury-gold transition-colors duration-300">HOME STUDIO</span>
+            <span class="text-[7px] md:text-[8px] tracking-[0.35em] uppercase text-luxury-gold-dark mt-0.5 font-medium">Paris Style Interiors</span>
+        </a>
+
+        <!-- Desktop Nav (hidden below lg) -->
+        <nav class="hidden lg:flex items-center gap-8 xl:gap-10 text-[11px] uppercase tracking-[0.18em] font-semibold text-[#2c221e]">
+            <a href="collection.html?category=all"    class="hover:text-luxury-gold transition-colors link-hover-underline py-2">Explore Categories</a>
+            <a href="index.html#collections-section"  class="hover:text-luxury-gold transition-colors link-hover-underline py-2">Explore Collections</a>
+            <a href="index.html#bestsellers-section"  class="hover:text-luxury-gold transition-colors link-hover-underline py-2">Bestsellers</a>
+            <a href="index.html#new-launches-section" class="hover:text-luxury-gold transition-colors link-hover-underline py-2">New Arrivals</a>
+        </nav>
+
+        <!-- Right side: search, cart, hamburger -->
+        <div class="flex items-center gap-1 md:gap-3 text-[#2c221e]">
+            <!-- Search -->
+            <button class="flex hover:text-luxury-gold transition-colors p-2 items-center justify-center" aria-label="Search"
+                    onclick="const s=document.getElementById('search-input');if(s){s.focus();}else{window.location.href='collection.html';}">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 md:h-[22px] md:w-[22px]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                </svg>
+            </button>
+            <!-- Cart -->
+            <a href="cart.html" class="relative hover:text-luxury-gold transition-colors p-2 flex items-center justify-center" aria-label="Shopping Bag">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 md:h-[22px] md:w-[22px]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
+                </svg>
+                <span class="cart-count-badge hidden absolute top-0 right-0 bg-luxury-gold text-[#faf8f5] text-[9px] font-bold rounded-full w-4 h-4 flex items-center justify-center border border-white">0</span>
+            </a>
+            <!-- Admin (desktop only) -->
+            <a href="admin.html" class="hidden lg:flex hover:text-luxury-gold transition-colors p-2 items-center justify-center" aria-label="Admin Panel" title="Admin Panel">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 md:h-[22px] md:w-[22px]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                </svg>
+            </a>
+            <!-- Hamburger (mobile-nav.css shows this below 1024px, hides above) -->
+
+            <button id="mobile-menu-btn" aria-label="Open navigation menu"
+                    style="color:#2c221e;width:40px;height:40px;padding:0;background:transparent;border:none;cursor:pointer;align-items:center;justify-content:center;flex-shrink:0">
+                <svg width="22" height="22" viewBox="0 0 22 22" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="1" y="3"    width="20" height="2.2" rx="1.1"/>
+                    <rect x="1" y="9.9"  width="20" height="2.2" rx="1.1"/>
+                    <rect x="1" y="16.8" width="20" height="2.2" rx="1.1"/>
+                </svg>
+            </button>
+        </div>
+
+    </header>
+
+</div><!-- navbar wrapper -->
+

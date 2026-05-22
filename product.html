@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>Imperial Satin Luxe Bedsheet Set | Home Studio</title>
+    <meta name="description" content="Indulge in luxury bedding with the Imperial Satin Luxe Bedsheet Set. 100% organic cotton, 600 thread count, and a silky-smooth drape.">
+    
+    <!-- CSS Design System Styling -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/utilities.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/mobile-nav.css">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'luxury-cream': 'var(--color-cream)',
+                        'luxury-beige': 'var(--color-beige)',
+                        'luxury-light-beige': 'var(--color-light-beige)',
+                        'luxury-gold': 'var(--color-luxury-gold)',
+                        'luxury-gold-dark': 'var(--color-luxury-gold-dark)',
+                        'luxury-brown': 'var(--color-dark-brown)',
+                        'luxury-charcoal': 'var(--color-charcoal)',
+                        'cream': 'var(--color-cream)',
+                        'dark-brown': 'var(--color-dark-brown)',
+                        'warm-gray': 'var(--color-warm-gray)',
+                        'burgundy': '#6b1b1b',
+                    },
+                    fontFamily: {
+                        cormorant: ['var(--font-cormorant)', 'serif'],
+                        serif: ['var(--font-serif)', 'serif'],
+                        sans: ['var(--font-sans)', 'sans-serif'],
+                    },
+                    spacing: {
+                        'xs': 'var(--spacing-xs)',
+                        'sm': 'var(--spacing-sm)',
+                        'md': 'var(--spacing-md)',
+                        'lg': 'var(--spacing-lg)',
+                        'xl': 'var(--spacing-xl)',
+                        'xxl': 'var(--spacing-xxl)',
+                    },
+                    borderRadius: {
+                        'sm': 'var(--radius-sm)',
+                        'md': 'var(--radius-md)',
+                        'lg': 'var(--radius-lg)',
+                    },
+                    boxShadow: {
+                        'premium': 'var(--shadow-premium)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .active-thumb {
+            border-color: #2c221e !important;
+            box-shadow: 0 4px 12px rgba(44, 34, 30, 0.08);
+        }
+        .active-swatch {
+            outline: 2px solid #9c8466;
+            outline-offset: 2px;
+        }
+        #product-main-image {
+            transition: opacity 0.3s ease-in-out, transform 0.5s ease-out;
+            transform-origin: center center;
+        }
+    </style>
+</head>
+<body class="bg-[#faf8f5] text-[#2c221e] flex flex-col min-h-screen">
+
+    <!-- Premium Pre-loader -->
+    <div id="full-page-loader" class="fixed inset-0 z-50 bg-[#faf8f5] flex flex-col items-center justify-center transition-opacity duration-500">
+        <div class="relative w-12 h-12 mb-4">
+            <div class="absolute inset-0 rounded-full border border-[#2c221e]/10"></div>
+            <div class="absolute inset-0 rounded-full border border-t-[#9c8466] border-r-transparent border-b-transparent border-l-transparent animate-spin"></div>
+        </div>
+        <span class="text-[9px] uppercase tracking-[0.3em] text-[#2c221e]/40">Home Studio</span>
+    </div>
+
+    <!-- Reusable Navbar Injection -->
+    <div data-include="components/navbar.html"></div>
+
+    <!-- ─── Mobile Navigation Overlay (hardcoded for reliable DOM access) ─── -->
+
+    <!-- Backdrop: dark blurred overlay behind drawer -->
+    <div id="mobile-nav-backdrop"></div>
+
+    <!-- Drawer Panel: slides in from the right -->
+    <div id="mobile-nav-drawer" role="dialog" aria-modal="true" aria-label="Navigation menu">
+
+        <!-- Top bar: brand + close button -->
+        <div class="mnav-top">
+            <div class="mnav-brand">
+                <span class="mnav-brand-name">Home Studio</span>
+                <span class="mnav-brand-sub">Paris Style Interiors</span>
+            </div>
+            <button id="mobile-nav-close-btn" aria-label="Close navigation menu">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+                    <line x1="6"  y1="6"  x2="18" y2="18"/>
+                    <line x1="18" y1="6"  x2="6"  y2="18"/>
+                </svg>
+            </button>
+        </div>
+
+        <!-- The four navigation links -->
+        <div class="mnav-links">
+            <a href="collection.html?category=all"    class="mnav-link">Explore Categories</a>
+            <a href="index.html#collections-section"  class="mnav-link">Explore Collections</a>
+            <a href="index.html#bestsellers-section"  class="mnav-link">Bestsellers</a>
+            <a href="index.html#new-launches-section" class="mnav-link">New Arrivals</a>
+        </div>
+
+    </div><!-- #mobile-nav-drawer -->
+
+    <!-- Main Content Container -->
+    <main class="flex-grow pt-28 md:pt-36 pb-24 luxury-container px-4 md:px-8">
+        
+        <!-- Skeleton Loading Container -->
+        <div id="pdp-skeleton" class="animate-pulse">
+            <!-- Breadcrumbs skeleton -->
+            <div class="h-3.5 w-48 bg-[#f3eee6]/60 rounded-full mb-8 md:mb-12 mt-4"></div>
+            
+            <!-- Grid split skeleton -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
+                <!-- Gallery Skeleton -->
+                <div class="lg:col-span-7 flex flex-col lg:flex-row gap-4">
+                    <!-- Desktop Thumbnails -->
+                    <div class="hidden lg:flex flex-col gap-3 w-20">
+                        <div class="w-16 h-16 bg-[#f3eee6]/50 rounded-xl"></div>
+                        <div class="w-16 h-16 bg-[#f3eee6]/50 rounded-xl"></div>
+                        <div class="w-16 h-16 bg-[#f3eee6]/50 rounded-xl"></div>
+                        <div class="w-16 h-16 bg-[#f3eee6]/50 rounded-xl"></div>
+                    </div>
+                    <!-- Main Hero Image -->
+                    <div class="flex-grow aspect-[4/5] bg-[#f3eee6]/40 rounded-2xl"></div>
+                </div>
+                
+                <!-- Buy Panel Skeleton -->
+                <div class="lg:col-span-5 flex flex-col gap-6">
+                    <div class="h-4 w-24 bg-[#f3eee6]/60 rounded-full"></div>
+                    <div class="h-10 w-3/4 bg-[#f3eee6]/60 rounded-full"></div>
+                    <div class="h-6 w-32 bg-[#f3eee6]/50 rounded-full"></div>
+                    
+                    <div class="border-t border-b border-warm-gray/20 py-5 flex flex-col gap-4">
+                        <div class="h-8 w-40 bg-[#f3eee6]/60 rounded-full"></div>
+                        <div class="h-16 w-full bg-[#f3eee6]/40 rounded-xl"></div>
+                    </div>
+                    
+                    <div class="h-20 w-full bg-[#f3eee6]/30 rounded-xl"></div>
+                    
+                    <!-- Options skeleton -->
+                    <div class="flex flex-col gap-4">
+                        <div class="h-4 w-28 bg-[#f3eee6]/50 rounded-full"></div>
+                        <div class="flex gap-3">
+                            <div class="w-8 h-8 rounded-full bg-[#f3eee6]/50"></div>
+                            <div class="w-8 h-8 rounded-full bg-[#f3eee6]/50"></div>
+                            <div class="w-8 h-8 rounded-full bg-[#f3eee6]/50"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="h-12 w-full bg-[#f3eee6]/50 rounded-xl mt-4"></div>
+                    <div class="h-12 w-full bg-[#f3eee6]/50 rounded-xl"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Error Container (Hidden by default) -->
+        <div id="pdp-error" class="hidden flex-col items-center justify-center text-center py-20 px-4 max-w-md mx-auto">
+            <div class="w-16 h-16 mb-6 text-[#6b1b1b] flex items-center justify-center bg-[#6b1b1b]/10 rounded-full">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                </svg>
+            </div>
+            <h2 class="font-cormorant italic text-3xl text-[#2c221e] mb-4">Product Not Found</h2>
+            <p class="text-sm text-[#2c221e]/70 leading-relaxed mb-8">
+                We apologize, but the luxury item you are looking for is unavailable, has been moved, or does not exist in our studio inventory.
+            </p>
+            <a href="collection.html" class="w-full bg-[#2c221e] hover:bg-[#6b1b1b] text-white py-4 tracking-[0.2em] font-bold text-[11px] uppercase rounded-xl transition-all shadow-sm">
+                Explore Collection
+            </a>
+        </div>
+
+        <!-- Dynamic Product Content (Hidden by default while loading) -->
+        <div id="pdp-content" class="hidden">
+        
+        <!-- Breadcrumbs -->
+        <nav class="text-[10px] md:text-xs uppercase tracking-widest text-[#2c221e]/50 mb-8 md:mb-12 mt-4" aria-label="Breadcrumb">
+            <ol class="flex flex-wrap items-center gap-1.5 md:gap-2">
+                <li>
+                    <a href="index.html" class="hover:text-luxury-gold flex items-center gap-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 -translate-y-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                        </svg>
+                        Home
+                    </a>
+                </li>
+                <li>/</li>
+                <li><a href="collection.html?category=sheets" class="hover:text-luxury-gold">Bedding</a></li>
+                <li>/</li>
+                <li><a href="collection.html" class="hover:text-luxury-gold">Collections</a></li>
+                <li>/</li>
+                <li id="breadcrumb-product-name" class="text-[#2c221e] font-semibold">Imperial Satin Luxe Bedsheet Set</li>
+            </ol>
+        </nav>
+
+        <!-- Product Presentation Split Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
+            
+            <!-- LEFT COLUMN: Product Gallery (Sticky on Desktop) -->
+            <div class="lg:col-span-7 flex flex-col lg:flex-row gap-4 lg:sticky lg:top-36">
+                
+                <!-- Desktop Vertical Thumbnail Strip (Hidden on mobile) -->
+                <div class="hidden lg:flex flex-col gap-3 w-20 flex-shrink-0 max-h-[580px] overflow-y-auto no-scrollbar py-1">
+                    <!-- Javascript populates 8 thumbnails here -->
+                    <div id="vertical-thumbnails-container" class="flex flex-col gap-3"></div>
+                </div>
+
+                <!-- Main Immersive Product Image Box -->
+                <div class="flex-grow relative aspect-[4/5] bg-white rounded-2xl overflow-hidden border border-luxury-gold/5 shadow-sm group cursor-zoom-in" id="main-image-container">
+                    <!-- "New Launch" Badges/Ribbon -->
+                    <span class="absolute top-4 left-4 z-10 bg-burgundy text-[#faf8f5] text-[9px] font-bold uppercase tracking-[0.2em] px-3 py-1.5 rounded-md shadow-sm">
+                        New Launch
+                    </span>
+                    
+                    <img 
+                        id="product-main-image" 
+                        src="https://images.unsplash.com/photo-1505693395321-883724634266?auto=format&fit=crop&q=80&w=800" 
+                        alt="Imperial Satin Luxe Bedsheet Set - Front bed angle" 
+                        class="w-full h-full object-cover object-center"
+                    />
+                </div>
+
+                <!-- Mobile Horizontal Thumbnail Strip (Hidden on desktop) -->
+                <div id="horizontal-thumbnails-container" class="lg:hidden w-full overflow-x-auto no-scrollbar scroll-smooth snap-x snap-mandatory flex gap-3 pb-3 pt-1">
+                    <!-- Javascript populates horizontal thumbnails here -->
+                </div>
+            </div>
+
+            <!-- RIGHT COLUMN: Product Purchase & Detail Options -->
+            <div class="lg:col-span-5 flex flex-col gap-6">
+                
+                <!-- Category & Title -->
+                <div>
+                    <span id="product-detail-category" class="text-[10px] md:text-xs uppercase tracking-[0.25em] text-luxury-gold font-bold mb-2.5 block">Premium Bedding</span>
+                    <h1 id="product-detail-name" class="font-cormorant italic text-3xl md:text-4.5xl lg:text-5xl text-[#2c221e] font-light leading-[1.1] tracking-normal mb-3">
+                        Imperial Satin Luxe Bedsheet Set
+                    </h1>
+                </div>
+
+                <!-- Offers & Badges Block -->
+                <div class="flex items-center gap-3">
+                    <span class="bg-burgundy text-white text-[9px] uppercase tracking-wider font-bold py-1 px-2.5 rounded-sm">
+                        Limited Time Offer
+                    </span>
+                    <span class="text-xs text-[#2c221e]/60 font-medium">
+                        • &nbsp;10+ bought in last 30 days
+                    </span>
+                </div>
+
+                <!-- Pricing Layout -->
+                <div class="border-t border-b border-warm-gray/20 py-5 flex flex-col gap-2">
+                    <div class="flex items-baseline gap-3">
+                        <span id="product-detail-price" class="text-2xl md:text-3xl font-bold font-sans text-burgundy">₹3,599</span>
+                        <span id="product-detail-original-price" class="text-sm md:text-base font-medium font-sans text-warm-gray line-through">₹4,499</span>
+                        <span id="product-detail-discount-badge" class="bg-burgundy/10 text-burgundy text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-sm">20% OFF</span>
+                    </div>
+                    
+
+                </div>
+
+                <!-- Product short introduction description -->
+                <p id="product-detail-description" class="text-sm leading-relaxed text-[#2c221e]/70">
+                    Indulge in the ultimate sleeping sanctuary with our Imperial Satin Luxe Bedsheet Set. Woven from 100% long-staple organic cotton with a premium 600 thread count satin finish, it offers a silky-smooth tactile drape, exquisite durability, and an elegant natural sheen.
+                </p>
+
+                <!-- Configuration Options Form -->
+                <form id="product-options-form" class="flex flex-col gap-6" onsubmit="event.preventDefault();">
+                    
+
+
+                    <!-- Size Selector & Size Chart -->
+                    <div class="flex flex-col gap-3">
+                        <div class="flex justify-between items-center">
+                            <label for="product-size" class="text-[10px] uppercase tracking-[0.2em] text-[#2c221e]/50 font-bold">Select Size:</label>
+                            <!-- Size Chart Trigger Link -->
+                            <button type="button" id="size-chart-trigger" class="text-xs text-[#2c221e] hover:text-luxury-gold flex items-center gap-1.5 font-semibold transition-colors focus:outline-none">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 stroke-current" fill="none" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9h6m-6-4h6m-6 8h3" />
+                                </svg>
+                                Size Chart
+                            </button>
+                        </div>
+                        <div class="relative">
+                            <select id="product-size" name="Size" class="w-full bg-[#f3eee6] text-[#2c221e] border-none rounded-xl p-3.5 text-xs font-semibold tracking-wider focus:outline-none focus:ring-1 focus:ring-[#9c8466] appearance-none cursor-pointer">
+                                <!-- Populated dynamically -->
+                            </select>
+                            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-[#2c221e]/50">
+                                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quantity Counter -->
+                    <div class="flex flex-col gap-3">
+                        <label for="product-qty" class="text-[10px] uppercase tracking-[0.2em] text-[#2c221e]/50 font-bold">Quantity:</label>
+                        <div class="flex items-center border border-warm-gray/30 w-32 rounded-xl bg-white overflow-hidden shadow-sm">
+                            <button type="button" id="qty-minus" class="px-3.5 py-2.5 text-[#2c221e]/60 hover:text-[#2c221e] hover:bg-beige transition-colors focus:outline-none text-sm font-semibold">-</button>
+                            <input type="number" id="product-qty" value="1" min="1" class="w-full text-center border-none text-xs font-semibold focus:ring-0 focus:outline-none py-1 bg-transparent text-[#2c221e]" readonly>
+                            <button type="button" id="qty-plus" class="px-3.5 py-2.5 text-[#2c221e]/60 hover:text-[#2c221e] hover:bg-beige transition-colors focus:outline-none text-sm font-semibold">+</button>
+                        </div>
+                    </div>
+                </form>
+
+                <!-- Desktop CTA Buttons Panel -->
+                <div class="flex flex-col sm:flex-row gap-4 mt-6">
+                    <button id="add-to-bag-btn" class="btn-luxury flex-1 py-4 tracking-[0.2em] font-bold text-[11px] rounded-xl hover:shadow-md transition-all shadow-sm">
+                        Add to Bag
+                    </button>
+                    <button id="buy-now-btn" class="flex-1 bg-burgundy hover:bg-[#521313] text-white border border-burgundy py-4 px-6 tracking-[0.2em] font-bold text-[11px] uppercase rounded-xl transition-all shadow-sm hover:shadow-md">
+                        Buy Now
+                    </button>
+                </div>
+
+                <!-- WhatsApp CTA Button -->
+                <div class="mt-3">
+                    <a id="whatsapp-cta-btn" href="#" target="_blank" class="w-full bg-[#25D366] hover:bg-[#20ba5a] text-white py-3.5 px-6 tracking-[0.18em] font-bold text-[11px] uppercase rounded-xl transition-all shadow-sm hover:shadow-md flex items-center justify-center gap-2">
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.455L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.42 9.864-9.864.002-2.637-1.03-5.114-2.905-6.99C16.557 1.876 14.079.845 11.458.845 6.02.845 1.597 5.267 1.593 10.71c-.001 1.677.452 3.3 1.309 4.757l-.989 3.606 3.734-.98zm11.233-7.659c-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.568-.01-.199 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347z"/>
+                        </svg>
+                        Inquire on WhatsApp
+                    </a>
+                </div>
+
+                <!-- Redesigned Premium specifications & details -->
+                <div class="border border-[#e5dec9] rounded-2xl p-6 bg-[#fbf9f4] shadow-sm flex flex-col gap-5 mt-6">
+                    <!-- Header -->
+                    <div class="border-b border-[#e5dec9]/60 pb-3.5 flex flex-col gap-1">
+                        <h4 class="font-cormorant italic text-2xl text-[#2c221e] font-semibold leading-none">Product Details & Specs</h4>
+                        <span class="text-[9px] uppercase tracking-[0.25em] text-luxury-gold font-bold">Exquisite Craftsmanship & Specifications</span>
+                    </div>
+
+                    <!-- Package Elements -->
+                    <div class="flex flex-col gap-2.5">
+                        <h5 class="text-[10px] uppercase tracking-[0.18em] font-bold text-luxury-gold-dark flex items-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-luxury-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+                            </svg>
+                            Inside the Box
+                        </h5>
+                        <ul id="package-contents-list" class="text-xs text-[#2c221e]/75 space-y-1.5 list-disc list-inside leading-relaxed font-medium pl-1">
+                            <!-- Injected dynamically -->
+                        </ul>
+                    </div>
+
+                    <!-- Fine Separator line -->
+                    <div class="border-t border-[#e5dec9]/40 my-0.5"></div>
+
+                    <!-- Technical Specs Grid -->
+                    <div class="flex flex-col gap-2.5">
+                        <h5 class="text-[10px] uppercase tracking-[0.18em] font-bold text-luxury-gold-dark flex items-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-luxury-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                            </svg>
+                            Technical Specifications
+                        </h5>
+                        <div id="specs-grid" class="grid grid-cols-2 gap-x-6 gap-y-3.5 text-xs pt-1">
+                            <!-- Injected dynamically -->
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Sticky Bottom Mobile Cart Trigger Panel (Visible only on mobile/tablet screen widths) -->
+        <div class="fixed bottom-0 left-0 w-full bg-[#faf8f5]/90 backdrop-blur-md border-t border-warm-gray/10 py-3.5 px-5 z-30 flex items-center justify-between gap-4 lg:hidden shadow-[0_-8px_30px_rgba(44,34,30,0.06)] rounded-t-2xl">
+            <div class="flex flex-col">
+                <span class="text-[9px] uppercase tracking-widest text-[#2c221e]/50 font-bold mb-0.5">Total Price</span>
+                <span id="mobile-sticky-price" class="text-lg font-bold font-sans text-burgundy">₹3,599</span>
+            </div>
+            <div class="flex gap-2 flex-grow max-w-[70%]">
+                <button id="mobile-sticky-add-btn" class="flex-1 bg-[#2c221e] hover:bg-[#9c8466] text-white py-3 px-3 tracking-widest font-bold text-[10px] uppercase rounded-xl transition-all shadow-sm">
+                    Add to Bag
+                </button>
+                <button id="mobile-sticky-buy-btn" class="flex-1 bg-burgundy hover:bg-[#521313] text-white py-3 px-3 tracking-widest font-bold text-[10px] uppercase rounded-xl transition-all shadow-sm">
+                    Buy Now
+                </button>
+            </div>
+        </div>
+
+        </div> <!-- End #pdp-content -->
+    </main>
+
+    <!-- Size Chart Overlay Modal Dialog -->
+    <div id="size-chart-modal" class="fixed inset-0 bg-[#2c221e]/40 backdrop-blur-sm z-50 opacity-0 pointer-events-none transition-opacity duration-300 flex items-center justify-center p-4">
+        <div class="bg-[#faf8f5] w-full max-w-lg rounded-2xl overflow-hidden shadow-2xl transform scale-95 transition-transform duration-300 flex flex-col border border-luxury-gold/10">
+            <!-- Modal Header -->
+            <div class="flex justify-between items-center px-6 py-5 border-b border-warm-gray/10">
+                <h3 class="font-cormorant italic text-2xl text-[#2c221e] font-semibold">Bedding Size Guide</h3>
+                <button id="size-chart-close-btn" class="text-[#2c221e]/60 hover:text-luxury-gold p-1 focus:outline-none" aria-label="Close modal">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+            <!-- Modal Content -->
+            <div class="p-6 overflow-y-auto max-h-[75vh]">
+                <table class="w-full text-left text-xs border-collapse">
+                    <thead>
+                        <tr class="border-b border-[#2c221e]/15 text-[#2c221e]/40 uppercase tracking-wider">
+                            <th class="py-3 font-bold">Standard Size</th>
+                            <th class="py-3 font-bold">Bedsheet Dimensions</th>
+                            <th class="py-3 font-bold">Pillows (Qty 2)</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-warm-gray/10 text-[#2c221e] font-medium">
+                        <tr>
+                            <td class="py-3.5 font-bold">Queen Size</td>
+                            <td class="py-3.5">90" x 100" <br><span class="text-[10px] text-[#2c221e]/40">(228 x 254 cm)</span></td>
+                            <td class="py-3.5">18" x 27" <br><span class="text-[10px] text-[#2c221e]/40">(46 x 69 cm)</span></td>
+                        </tr>
+                        <tr>
+                            <td class="py-3.5 font-bold">King Size</td>
+                            <td class="py-3.5">108" x 108" <br><span class="text-[10px] text-[#2c221e]/40">(274 x 274 cm)</span></td>
+                            <td class="py-3.5">18" x 27" <br><span class="text-[10px] text-[#2c221e]/40">(46 x 69 cm)</span></td>
+                        </tr>
+                        <tr>
+                            <td class="py-3.5 font-bold">Super King</td>
+                            <td class="py-3.5">108" x 120" <br><span class="text-[10px] text-[#2c221e]/40">(274 x 305 cm)</span></td>
+                            <td class="py-3.5">18" x 27" <br><span class="text-[10px] text-[#2c221e]/40">(46 x 69 cm)</span></td>
+                        </tr>
+                        <tr>
+                            <td class="py-3.5 font-bold">Single Size</td>
+                            <td class="py-3.5">60" x 90" <br><span class="text-[10px] text-[#2c221e]/40">(152 x 228 cm)</span></td>
+                            <td class="py-3.5">18" x 27" <br><span class="text-[10px] text-[#2c221e]/40">(46 x 69 cm)</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="mt-6 bg-[#f3eee6]/50 p-4 rounded-xl text-[11px] leading-relaxed text-[#2c221e]/70 border border-warm-gray/10">
+                    <strong class="text-[#2c221e] uppercase tracking-wider block mb-1">Fitting Tip:</strong>
+                    Measure your mattress height. For thick mattresses (>8 inches), we recommend choosing King or Super King sizes to ensure proper tuck-in allowances.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Reusable Footer Injection -->
+    <div data-include="components/footer.html"></div>
+
+    <!-- Scripts Injection -->
+    <script type="module" src="js/app.js"></script>
+    <script type="module" src="js/product-page.js"></script>
+</body>
+</html>

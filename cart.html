@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <title>Shopping Bag | Home Studio</title>
+    <meta name="description"
+        content="View items in your bag, update order quantities, and proceed to premium checkout.">
+
+    <!-- CSS Design System Styling -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/utilities.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/mobile-nav.css">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'luxury-cream': 'var(--color-cream)',
+                        'luxury-beige': 'var(--color-beige)',
+                        'luxury-light-beige': 'var(--color-light-beige)',
+                        'luxury-gold': 'var(--color-luxury-gold)',
+                        'luxury-gold-dark': 'var(--color-luxury-gold-dark)',
+                        'luxury-brown': 'var(--color-dark-brown)',
+                        'luxury-charcoal': 'var(--color-charcoal)',
+                    },
+                    fontFamily: {
+                        serif: ['var(--font-serif)', 'serif'],
+                        sans: ['var(--font-sans)', 'sans-serif'],
+                    },
+                    spacing: {
+                        'xs': 'var(--spacing-xs)',
+                        'sm': 'var(--spacing-sm)',
+                        'md': 'var(--spacing-md)',
+                        'lg': 'var(--spacing-lg)',
+                        'xl': 'var(--spacing-xl)',
+                        'xxl': 'var(--spacing-xxl)',
+                    },
+                    borderRadius: {
+                        'sm': 'var(--radius-sm)',
+                        'md': 'var(--radius-md)',
+                        'lg': 'var(--radius-lg)',
+                    },
+                    boxShadow: {
+                        'premium': 'var(--shadow-premium)',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-luxury-cream text-luxury-brown flex flex-col min-h-screen">
+
+    <!-- Premium Pre-loader -->
+    <div id="full-page-loader"
+        class="fixed inset-0 z-50 bg-luxury-cream flex flex-col items-center justify-center transition-opacity duration-500">
+        <div class="relative w-12 h-12 mb-4">
+            <div class="absolute inset-0 rounded-full border border-luxury-brown/10"></div>
+            <div
+                class="absolute inset-0 rounded-full border border-t-luxury-gold border-r-transparent border-b-transparent border-l-transparent animate-spin">
+            </div>
+        </div>
+        <span class="text-[9px] uppercase tracking-[0.3em] text-luxury-brown/40">Home Studio</span>
+    </div>
+
+    <!-- Reusable Navbar Injection -->
+    <div data-include="components/navbar.html"></div>
+
+    <!-- ─── Mobile Navigation Overlay (hardcoded for reliable DOM access) ─── -->
+
+    <!-- Backdrop: dark blurred overlay behind drawer -->
+    <div id="mobile-nav-backdrop"></div>
+
+    <!-- Drawer Panel: slides in from the right -->
+    <div id="mobile-nav-drawer" role="dialog" aria-modal="true" aria-label="Navigation menu">
+
+        <!-- Top bar: brand + close button -->
+        <div class="mnav-top">
+            <div class="mnav-brand">
+                <span class="mnav-brand-name">Home Studio</span>
+                <span class="mnav-brand-sub">Paris Style Interiors</span>
+            </div>
+            <button id="mobile-nav-close-btn" aria-label="Close navigation menu">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+                    <line x1="6"  y1="6"  x2="18" y2="18"/>
+                    <line x1="18" y1="6"  x2="6"  y2="18"/>
+                </svg>
+            </button>
+        </div>
+
+        <!-- The four navigation links -->
+        <div class="mnav-links">
+            <a href="collection.html?category=all"    class="mnav-link">Explore Categories</a>
+            <a href="index.html#collections-section"  class="mnav-link">Explore Collections</a>
+            <a href="index.html#bestsellers-section"  class="mnav-link">Bestsellers</a>
+            <a href="index.html#new-launches-section" class="mnav-link">New Arrivals</a>
+        </div>
+
+    </div><!-- #mobile-nav-drawer -->
+
+    <!-- Main Content Container -->
+    <main class="flex-grow pt-28 md:pt-36 pb-24 luxury-container">
+
+        <h1 class="font-serif text-3xl md:text-4xl mb-10">Your Bag</h1>
+
+        <!-- Empty State -->
+        <div id="cart-empty-state" class="hidden text-center py-20">
+            <p class="text-sm text-luxury-brown/50 mb-8">Your shopping bag is currently empty.</p>
+            <a href="collection.html" class="btn-luxury">Explore The Collection</a>
+        </div>
+
+        <!-- Cart Split View -->
+        <div id="cart-split-view" class="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
+
+            <!-- Cart Items List (Column 1 & 2) -->
+            <div class="lg:col-span-2 flex flex-col gap-6" id="cart-items-container">
+                <!-- Dynamically populated via JS -->
+            </div>
+
+            <!-- Summary Panel (Column 3) -->
+            <div class="bg-white p-8 rounded-md shadow-sm border border-luxury-gold/5 h-fit flex flex-col gap-6">
+                <h2 class="font-serif text-xl border-b border-warm-gray/20 pb-4">Order Summary</h2>
+
+                <div class="flex flex-col gap-4 text-sm">
+                    <div class="flex justify-between">
+                        <span class="text-luxury-brown/60">Subtotal</span>
+                        <span class="font-semibold text-luxury-brown" id="cart-summary-subtotal">₹0.00</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-luxury-brown/60">Shipping</span>
+                        <span
+                            class="font-semibold text-luxury-gold-dark uppercase text-xs tracking-wider">Complimentary</span>
+                    </div>
+                    <div class="border-t border-warm-gray/20 pt-4 flex justify-between text-base font-bold">
+                        <span>Total</span>
+                        <span class="text-luxury-gold-dark" id="cart-summary-total">₹0</span>
+                    </div>
+                </div>
+
+                <a href="checkout.html"
+                    class="btn-luxury w-full py-4 tracking-[0.2em] font-semibold text-sm text-center">
+                    Proceed to checkout
+                </a>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- Reusable Footer Injection -->
+    <div data-include="components/footer.html"></div>
+
+    <!-- Scripts Injection -->
+    <script type="module" src="js/app.js"></script>
+    <script type="module">
+        import { getCart, updateQuantity, removeFromCart, getCartTotals } from './js/cart.js';
+
+        function init() {
+            renderCartPage();
+
+            // Re-render page if cart updates elsewhere
+            document.addEventListener('cartUpdated', renderCartPage);
+        }
+
+        if (window.__componentsLoaded) {
+            init();
+        } else {
+            document.addEventListener('componentsLoaded', init);
+        }
+
+        function renderCartPage() {
+            const cartItems = getCart();
+            const emptyState = document.getElementById('cart-empty-state');
+            const splitView = document.getElementById('cart-split-view');
+            const itemsContainer = document.getElementById('cart-items-container');
+            const subtotalText = document.getElementById('cart-summary-subtotal');
+            const totalText = document.getElementById('cart-summary-total');
+
+            if (cartItems.length === 0) {
+                emptyState.classList.remove('hidden');
+                splitView.classList.add('hidden');
+                return;
+            }
+
+            emptyState.classList.add('hidden');
+            splitView.classList.remove('hidden');
+
+            const formatter = {
+                format: (val) => {
+                    const num = parseFloat(val);
+                    if (isNaN(num)) return '₹0';
+                    if (num % 1 === 0) {
+                        return '₹' + num.toLocaleString('en-IN');
+                    } else {
+                        return '₹' + num.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+                    }
+                }
+            };
+
+            // Render list
+            itemsContainer.innerHTML = cartItems.map(item => {
+                const optionsStr = item.selectedOptions
+                    ? Object.entries(item.selectedOptions).map(([k, v]) => `<span class="bg-luxury-beige/50 text-[10px] uppercase tracking-wider px-2 py-0.5 rounded text-luxury-brown/70">${k}: ${v}</span>`).join(' ')
+                    : '';
+
+                return `
+                    <div class="flex items-center gap-6 bg-white p-6 rounded-md shadow-sm border border-luxury-gold/5" data-id="${item.id}" data-opts='${JSON.stringify(item.selectedOptions || {})}'>
+                        <!-- Image -->
+                        <div class="w-24 h-24 bg-luxury-beige rounded overflow-hidden flex-shrink-0">
+                            <img src="${item.image}" alt="${item.name}" class="w-full h-full object-cover">
+                        </div>
+                        
+                        <!-- Metadata details -->
+                        <div class="flex-grow flex flex-col md:flex-row md:items-center justify-between gap-4">
+                            <div>
+                                <h3 class="font-serif text-base mb-1 text-luxury-brown">${item.name}</h3>
+                                <div class="flex flex-wrap gap-1.5 mt-1.5">${optionsStr}</div>
+                            </div>
+                            
+                            <div class="flex items-center gap-6 justify-between md:justify-end">
+                                <!-- Qty controls -->
+                                <div class="flex items-center border border-luxury-brown/20 rounded bg-luxury-cream">
+                                    <button class="px-2 py-1 text-xs decrease-btn font-bold">-</button>
+                                    <span class="w-8 text-center text-xs font-semibold py-1">${item.quantity}</span>
+                                    <button class="px-2 py-1 text-xs increase-btn font-bold">+</button>
+                                </div>
+                                
+                                <div class="flex flex-col items-end gap-1">
+                                    <span class="text-sm font-semibold text-luxury-gold-dark">${formatter.format(item.price * item.quantity)}</span>
+                                    <button class="text-[10px] uppercase tracking-widest text-red-600 hover:text-red-800 transition-colors font-bold remove-btn">Remove</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            // Update subtotal/totals
+            const totals = getCartTotals();
+            subtotalText.textContent = formatter.format(totals.subtotal);
+            totalText.textContent = formatter.format(totals.subtotal);
+
+            // Bind Actions
+            bindCartControls();
+        }
+
+        function bindCartControls() {
+            document.querySelectorAll('#cart-items-container [data-id]').forEach(itemRow => {
+                const id = itemRow.getAttribute('data-id');
+                const opts = JSON.parse(itemRow.getAttribute('data-opts'));
+
+                const getQty = () => {
+                    const cart = getCart();
+                    const item = cart.find(i => String(i.id) === String(id) && JSON.stringify(i.selectedOptions || {}) === JSON.stringify(opts));
+                    return item ? item.quantity : 0;
+                };
+
+                itemRow.querySelector('.increase-btn').addEventListener('click', () => {
+                    updateQuantity(id, getQty() + 1, opts);
+                });
+
+                itemRow.querySelector('.decrease-btn').addEventListener('click', () => {
+                    updateQuantity(id, getQty() - 1, opts);
+                });
+
+                itemRow.querySelector('.remove-btn').addEventListener('click', () => {
+                    removeFromCart(id, opts);
+                });
+            });
+        }
+    </script>
+</body>
+
+</html>

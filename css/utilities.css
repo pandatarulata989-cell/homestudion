@@ -1,0 +1,212 @@
+/*
+ * Home Studio - Luxury Utilities
+ * Tailored custom styling utilities to complement Tailwind CSS
+ */
+
+/* Luxury Container System */
+.luxury-container {
+    width: 100%;
+    max-width: 1440px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--spacing-sm);
+    padding-right: var(--spacing-sm);
+}
+
+@media (min-width: 640px) {
+    .luxury-container {
+        padding-left: var(--spacing-md);
+        padding-right: var(--spacing-md);
+    }
+}
+
+@media (min-width: 1024px) {
+    .luxury-container {
+        padding-left: var(--spacing-lg);
+        padding-right: var(--spacing-lg);
+    }
+}
+
+@media (min-width: 1280px) {
+    .luxury-container {
+        padding-left: var(--spacing-xl);
+        padding-right: var(--spacing-xl);
+    }
+}
+
+/* Premium Glassmorphism */
+.glass-premium {
+    background: rgba(250, 248, 245, 0.75);
+    backdrop-filter: blur(16px) saturate(120%);
+    -webkit-backdrop-filter: blur(16px) saturate(120%);
+    border: 1px solid rgba(156, 132, 102, 0.08);
+}
+
+.glass-premium-dark {
+    background: rgba(44, 34, 30, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(250, 248, 245, 0.05);
+}
+
+/* Premium Buttons */
+.btn-luxury {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.875rem 2.25rem;
+    font-size: 0.875rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-weight: 500;
+    border-radius: var(--radius-sm);
+    background-color: var(--color-dark-brown);
+    color: var(--color-cream);
+    transition: var(--transition-smooth);
+    border: 1px solid var(--color-dark-brown);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.btn-luxury::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-luxury-gold);
+    z-index: -1;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.btn-luxury:hover::before {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.btn-luxury:hover {
+    color: var(--color-cream);
+    border-color: var(--color-luxury-gold);
+    box-shadow: var(--shadow-sm);
+}
+
+.btn-luxury-outline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.875rem 2.25rem;
+    font-size: 0.875rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-weight: 500;
+    border-radius: var(--radius-sm);
+    background-color: transparent;
+    color: var(--color-dark-brown);
+    transition: var(--transition-smooth);
+    border: 1px solid var(--color-dark-brown);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.btn-luxury-outline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-dark-brown);
+    z-index: -1;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.btn-luxury-outline:hover::before {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.btn-luxury-outline:hover {
+    color: var(--color-cream);
+}
+
+/* Image Zoom Hover Mask */
+.img-zoom-container {
+    overflow: hidden;
+    position: relative;
+    border-radius: var(--radius-md);
+}
+
+.img-zoom {
+    transition: var(--transition-slow);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.img-zoom-container:hover .img-zoom {
+    transform: scale(1.06);
+}
+
+/* Aspect ratio boxes for premium image loading */
+.aspect-portrait {
+    aspect-ratio: 3 / 4;
+}
+
+.aspect-landscape {
+    aspect-ratio: 16 / 9;
+}
+
+.aspect-square {
+    aspect-ratio: 1 / 1;
+}
+
+/* Underline slide effect for links */
+.link-hover-underline {
+    position: relative;
+    display: inline-block;
+}
+
+.link-hover-underline::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 1px;
+    bottom: -2px;
+    left: 0;
+    background-color: currentColor;
+    transform-origin: bottom right;
+    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.link-hover-underline:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+/* Hide scrollbar utility */
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+.no-scrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+/* Mobile Drawer Accordions */
+.accordion-menu {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.accordion-menu.open {
+    max-height: 400px;
+}

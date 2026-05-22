@@ -1,0 +1,151 @@
+/*
+ * Home Studio — Mobile Navigation
+ * Screens below 768px only.
+ * Zero dependency on Tailwind JIT. Loaded in <head> before any JS.
+ */
+
+/* ─── Hamburger Button ──────────────────────────────────────────── */
+/* Default: hidden on desktop (CSS-controlled, no inline style) */
+#mobile-menu-btn {
+    display: none !important;
+}
+
+/* Show on screens below 1024px (matches Tailwind lg breakpoint) */
+@media (max-width: 1023px) {
+    #mobile-menu-btn {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 40px !important;
+        height: 40px !important;
+        padding: 0 !important;
+        background: transparent !important;
+        border: none !important;
+        cursor: pointer !important;
+        color: #2c221e !important;
+        flex-shrink: 0 !important;
+        min-height: unset !important;
+    }
+    #mobile-menu-btn:hover {
+        color: #9c8466 !important;
+    }
+}
+
+/* ─── Backdrop ──────────────────────────────────────────────────── */
+#mobile-nav-backdrop {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(44, 34, 30, 0.5);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+#mobile-nav-backdrop.open {
+    display: block;
+    opacity: 1;
+}
+
+/* ─── Drawer Panel ──────────────────────────────────────────────── */
+#mobile-nav-drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 100vh;
+    background: #faf8f5;
+    z-index: 1001;
+    display: flex;
+    flex-direction: column;
+    transform: translateX(100%);
+    transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+    box-shadow: -6px 0 30px rgba(44, 34, 30, 0.12);
+}
+#mobile-nav-drawer.open {
+    transform: translateX(0);
+}
+
+/* ─── Drawer Top Bar (brand + close) ───────────────────────────── */
+#mobile-nav-drawer .mnav-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid rgba(44, 34, 30, 0.1);
+    flex-shrink: 0;
+}
+#mobile-nav-drawer .mnav-brand {
+    display: flex;
+    flex-direction: column;
+}
+#mobile-nav-drawer .mnav-brand-name {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #2c221e;
+    line-height: 1.2;
+}
+#mobile-nav-drawer .mnav-brand-sub {
+    font-size: 7px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: #9c8466;
+    margin-top: 3px;
+    font-weight: 500;
+}
+#mobile-nav-close-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: #2c221e;
+    flex-shrink: 0;
+    transition: color 0.2s;
+}
+#mobile-nav-close-btn:hover {
+    color: #9c8466;
+}
+#mobile-nav-close-btn svg {
+    width: 22px;
+    height: 22px;
+    display: block;
+    stroke: currentColor;
+    fill: none;
+}
+
+/* ─── Nav Links ─────────────────────────────────────────────────── */
+#mobile-nav-drawer .mnav-links {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem 0;
+    flex: 1;
+}
+#mobile-nav-drawer .mnav-link {
+    display: flex;
+    align-items: center;
+    padding: 1.1rem 1.5rem;
+    font-family: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #2c221e;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(44, 34, 30, 0.07);
+    transition: color 0.2s ease, background 0.2s ease;
+}
+#mobile-nav-drawer .mnav-link:last-child {
+    border-bottom: none;
+}
+#mobile-nav-drawer .mnav-link:hover {
+    color: #9c8466;
+    background: rgba(156, 132, 102, 0.05);
+}
