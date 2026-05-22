@@ -111,9 +111,9 @@ export function createProductCardMarkup(product) {
     // Top-Right Rating (bg-white text-xs px-2 py-1 absolute top-2 right-2 rounded-full flex items-center gap-1 z-10)
     const ratingMarkup = `<span class="bg-white text-xs px-2 py-1 absolute top-2 right-2 rounded-full flex items-center gap-1 shadow-sm text-gray-800 font-bold z-10"><span class="text-amber-500">★</span> ${product.rating || '4.8'}</span>`;
 
-    // Bottom-Right Cart Icon (absolute -bottom-4 right-3 bg-[#2a1c15] text-white p-2 rounded-full shadow-lg z-10)
+    // Bottom-Right Cart Icon (absolute -bottom-4 right-3 bg-[#2a1c15] text-white p-2.5 rounded-full border-2 border-white shadow-xl shadow-black/40 z-10)
     const cartIconMarkup = `
-        <button class="add-to-cart-quick absolute -bottom-4 right-3 bg-[#2a1c15] text-white p-2 rounded-full shadow-lg z-10 hover:bg-[#402a1f] active:scale-95 transition-all duration-300 flex items-center justify-center cursor-pointer" aria-label="Add to cart">
+        <button class="add-to-cart-quick absolute -bottom-4 right-3 bg-[#2a1c15] text-white p-2.5 rounded-full border-2 border-white shadow-xl shadow-black/40 z-10 hover:bg-[#402a1f] active:scale-95 transition-all duration-300 flex items-center justify-center cursor-pointer" aria-label="Add to cart">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
             </svg>
@@ -123,7 +123,7 @@ export function createProductCardMarkup(product) {
     const hoverImage = product.images && product.images[1] ? product.images[1] : null;
     
     const imageAreaMarkup = hoverImage 
-        ? `<div class="relative aspect-[4/5] w-full overflow-hidden bg-luxury-beige">
+        ? `<div class="relative aspect-[4/5] lg:aspect-none lg:h-72 w-full overflow-hidden bg-luxury-beige">
              ${badgeMarkup}
              ${ratingMarkup}
              <a href="product.html?id=${product.id}" class="block w-full h-full">
@@ -132,7 +132,7 @@ export function createProductCardMarkup(product) {
              </a>
              ${cartIconMarkup}
            </div>`
-        : `<div class="relative aspect-[4/5] w-full overflow-hidden bg-luxury-beige">
+        : `<div class="relative aspect-[4/5] lg:aspect-none lg:h-72 w-full overflow-hidden bg-luxury-beige">
              ${badgeMarkup}
              ${ratingMarkup}
              <a href="product.html?id=${product.id}" class="block w-full h-full">
@@ -242,9 +242,9 @@ export function createCategoryProductCardMarkup(product) {
     // Top-Right Rating (bg-white text-xs px-2 py-1 absolute top-2 right-2 rounded-full flex items-center gap-1 z-10)
     const ratingMarkup = `<span class="bg-white text-xs px-2 py-1 absolute top-2 right-2 rounded-full flex items-center gap-1 shadow-sm text-gray-800 font-bold z-10"><span class="text-amber-500">★</span> ${product.rating || '4.8'}</span>`;
 
-    // Bottom-Right Cart Icon (absolute -bottom-4 right-3 bg-[#2a1c15] text-white p-2 rounded-full shadow-lg z-10)
+    // Bottom-Right Cart Icon (absolute -bottom-4 right-3 bg-[#2a1c15] text-white p-2.5 rounded-full border-2 border-white shadow-xl shadow-black/40 z-10)
     const cartIconMarkup = `
-        <button class="add-to-cart-quick absolute -bottom-4 right-3 bg-[#2a1c15] text-white p-2 rounded-full shadow-lg z-10 hover:bg-[#402a1f] active:scale-95 transition-all duration-300 flex items-center justify-center cursor-pointer" aria-label="Add to cart">
+        <button class="add-to-cart-quick absolute -bottom-4 right-3 bg-[#2a1c15] text-white p-2.5 rounded-full border-2 border-white shadow-xl shadow-black/40 z-10 hover:bg-[#402a1f] active:scale-95 transition-all duration-300 flex items-center justify-center cursor-pointer" aria-label="Add to cart">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
             </svg>
@@ -254,7 +254,7 @@ export function createCategoryProductCardMarkup(product) {
     const hoverImage = product.images && product.images[1] ? product.images[1] : null;
     
     const imageAreaMarkup = hoverImage 
-        ? `<div class="relative aspect-[4/5] w-full overflow-hidden bg-luxury-beige">
+        ? `<div class="relative aspect-[4/5] lg:aspect-none lg:h-72 w-full overflow-hidden bg-luxury-beige">
              ${badgeMarkup}
              ${ratingMarkup}
              <a href="product.html?id=${product.id}" class="block w-full h-full">
@@ -263,7 +263,7 @@ export function createCategoryProductCardMarkup(product) {
              </a>
              ${cartIconMarkup}
            </div>`
-        : `<div class="relative aspect-[4/5] w-full overflow-hidden bg-luxury-beige">
+        : `<div class="relative aspect-[4/5] lg:aspect-none lg:h-72 w-full overflow-hidden bg-luxury-beige">
              ${badgeMarkup}
              ${ratingMarkup}
              <a href="product.html?id=${product.id}" class="block w-full h-full">
