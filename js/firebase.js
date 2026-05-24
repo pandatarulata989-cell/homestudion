@@ -25,7 +25,8 @@ export function isFirebaseReady() {
  * @returns {Object} Clean UI product object
  */
 export function mapFirestoreProductToUI(docData, id) {
-    const images = docData.images || (docData.image ? [docData.image] : ["assets/images/placeholder.jpg"]);
+    const variantImages = docData.variantImages || docData.images || (docData.image ? [docData.image] : ["assets/images/placeholder.jpg"]);
+    const images = variantImages;
     const price = parseFloat(docData.price) || 0;
     const originalPrice = docData.originalPrice ? parseFloat(docData.originalPrice) : price;
     const discount = docData.discount || (originalPrice > price ? `${Math.round(((originalPrice - price) / originalPrice) * 100)}% OFF` : "");
@@ -40,8 +41,9 @@ export function mapFirestoreProductToUI(docData, id) {
         currency: docData.currency || "INR",
         category: docData.category || "",
         description: docData.description || "",
-        image: docData.image || images[0] || "assets/images/placeholder.jpg",
+        image: docData.image || variantImages[0] || "assets/images/placeholder.jpg",
         images: images,
+        variantImages: variantImages,
         isNew: isNewLaunch || docData.isNew || docData.badge === "New" || docData.badge === "New Launch" || false,
         isNewLaunch: isNewLaunch,
         isBestseller: isBestseller,
@@ -51,11 +53,10 @@ export function mapFirestoreProductToUI(docData, id) {
         specifications: docData.specifications || {},
         packageElements: docData.packageElements || [],
         options: docData.options || {
-            "Fabric Color": docData.colors || [],
             "Size": docData.sizes || []
         },
         sizes: docData.sizes || (docData.options?.Size) || [],
-        colors: docData.colors || (docData.options?.["Fabric Color"]) || []
+        colors: []
     };
 }
 

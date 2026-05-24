@@ -29,7 +29,7 @@ const submitSpinner   = document.getElementById('submit-spinner');
 const resetFormBtn    = document.getElementById('reset-form-btn');
 const refreshListBtn  = document.getElementById('refresh-list-btn');
 const productListEl   = document.getElementById('product-list');
-const imageInput      = document.getElementById('f-image');
+const imageInput      = document.getElementById('product-images');
 const imgGrid         = document.getElementById('img-grid');
 const imgAddTile      = document.getElementById('img-add-tile');
 const imgCountBadge   = document.getElementById('img-count-badge');
@@ -312,6 +312,9 @@ async function editProduct(productId) {
         document.getElementById('f-description').value = product.description || '';
         document.getElementById('f-category').value = product.category || '';
         document.getElementById('f-rating').value = product.rating || '4.8';
+        
+        // Sizes
+        document.getElementById('product-sizes').value = Array.isArray(product.sizes) ? product.sizes.join(', ') : '';
 
         // Pricing
         mrpInput.value = product.originalPrice || '';
@@ -323,7 +326,7 @@ async function editProduct(productId) {
         document.getElementById('f-is-bestseller').checked = product.isBestseller || false;
 
         // Image state mapping (holds both pre-existing URL strings and new local Files)
-        productImages = [...(product.images || [])];
+        productImages = [...(product.variantImages || product.images || [])];
         renderImageGrid();
 
         // Populate specifications (key-value)
@@ -395,6 +398,10 @@ async function handleFormSubmit(e) {
     const isNewLaunch = document.getElementById('f-is-new-launch').checked;
     const isBestseller = document.getElementById('f-is-bestseller').checked;
     const hasImages   = productImages.length > 0;
+    
+    // Parse dynamic sizes
+    const sizesVal    = document.getElementById('product-sizes').value.trim();
+    const sizes       = sizesVal ? sizesVal.split(',').map(s => s.trim()).filter(s => s.length > 0) : [];
 
     // Validation
     if (!title || !description || !category || !mrp || !price) {
@@ -467,7 +474,9 @@ async function handleFormSubmit(e) {
             originalPrice: mrp,
             discount: discountPct,
             image: primaryUrl,
+            variantImages: imageUrls,
             images: imageUrls,
+            sizes,
             isNewLaunch,
             isBestseller,
             badge,

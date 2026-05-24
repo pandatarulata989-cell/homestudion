@@ -124,7 +124,7 @@
     </div><!-- #mobile-nav-drawer -->
 
     <!-- Main Content Container -->
-    <main class="flex-grow pt-36 md:pt-40">
+    <main class="flex-grow pt-36 md:pt-40 lg:px-32">
 
         <!-- STOA Paris Style Hero Section -->
         <section class="px-4 md:px-8 pb-4 md:pb-8 reveal-on-scroll">
@@ -179,7 +179,7 @@
 
                 <!-- Product Grid (4-Column Grid Desktop, Drag/Swipe Slider Mobile with snap alignment) -->
                 <div id="bestsellers-grid"
-                    class="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-6 lg:grid lg:grid-cols-4 lg:gap-6 lg:overflow-x-visible lg:pb-0 no-scrollbar px-2 -mx-2">
+                    class="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-6 lg:grid lg:grid-cols-4 lg:gap-x-4 lg:gap-y-6 lg:overflow-x-visible lg:pb-0 no-scrollbar px-2 -mx-2">
                     <!-- Dynamic product cards render here via JS -->
                 </div>
 
@@ -211,7 +211,7 @@
 
                 <!-- Product Grid (4-Column Grid Desktop, Drag/Swipe Slider Mobile with snap alignment) -->
                 <div id="new-launches-grid"
-                    class="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-6 lg:grid lg:grid-cols-4 lg:gap-6 lg:overflow-x-visible lg:pb-0 no-scrollbar px-2 -mx-2">
+                    class="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-6 lg:grid lg:grid-cols-4 lg:gap-x-4 lg:gap-y-6 lg:overflow-x-visible lg:pb-0 no-scrollbar px-2 -mx-2">
                     <!-- Dynamic product cards render here via JS -->
                 </div>
 
@@ -295,152 +295,140 @@
 
                 <!-- Carousel Slider container -->
                 <div id="collections-carousel"
-                    class="flex gap-6 overflow-x-auto snap-x snap-mandatory scroll-smooth no-scrollbar pb-6 px-2 -mx-2">
+                    class="flex overflow-x-auto snap-x snap-mandatory gap-5 px-5 pb-8 w-full scrollbar-hide">
 
                     <!-- Collection 1: Imperial Satin -->
                     <a href="collection.html?id=satin"
-                        class="snap-start shrink-0 w-[65%] sm:w-[45%] md:w-[35%] lg:w-[23%] group">
-                        <div
-                            class="bg-white rounded-2xl overflow-hidden shadow-sm border border-luxury-gold/5 flex flex-col justify-between h-full transition-all duration-500 hover:-translate-y-1.5 hover:shadow-md">
-                            <!-- Image Container -->
-                            <div class="relative aspect-[16/10] overflow-hidden bg-luxury-beige">
-                                <span
-                                    class="absolute top-3.5 left-3.5 bg-[#6b1b1b] text-white text-[8px] md:text-[9px] uppercase tracking-[0.2em] font-bold py-1 px-3.5 rounded-full z-10 shadow-sm">
-                                    Bestseller
-                                </span>
-                                <img src="https://images.unsplash.com/photo-1505693395321-883724634266?auto=format&fit=crop&q=80&w=800"
-                                    alt="Imperial Satin Collection"
-                                    class="w-full h-full object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-105">
+                        class="w-[85vw] sm:w-[60vw] flex-shrink-0 snap-center rounded-2xl overflow-hidden bg-[#f4efe8] shadow-sm flex flex-col relative group transition-all duration-500 hover:-translate-y-1.5 hover:shadow-md">
+                        <!-- Bulletproof Image Wrapper -->
+                        <div class="w-full h-64 sm:h-72 relative bg-gray-200">
+                            <span
+                                class="absolute top-3.5 left-3.5 bg-[#6b1b1b] text-white text-[8px] md:text-[9px] uppercase tracking-[0.2em] font-bold py-1 px-3.5 rounded-full z-10 shadow-sm">
+                                Bestseller
+                            </span>
+                            <img src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&q=80&w=800"
+                                alt="Imperial Satin Collection"
+                                class="absolute inset-0 w-full h-full object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-105">
+                        </div>
+                        <!-- Details Bottom -->
+                        <div class="p-5 flex items-center justify-between mt-auto">
+                            <div>
+                                <h3
+                                    class="font-cormorant italic text-lg md:text-xl text-[#2c221e] mb-0.5 group-hover:text-[#6b1b1b] transition-colors">
+                                    Imperial Satin</h3>
+                                <p
+                                    class="text-[10px] tracking-wider uppercase text-[#2c221e]/50 font-semibold font-sans">
+                                    1200 TC Bedroom Sets</p>
                             </div>
-                            <!-- Details Bottom -->
-                            <div class="p-5 bg-[#fbfaf8] flex items-center justify-between border-t border-[#f3eee6]">
-                                <div>
-                                    <h3
-                                        class="font-cormorant italic text-lg md:text-xl text-[#2c221e] mb-0.5 group-hover:text-[#6b1b1b] transition-colors">
-                                        Imperial Satin</h3>
-                                    <p
-                                        class="text-[10px] tracking-wider uppercase text-[#2c221e]/50 font-semibold font-sans">
-                                        1200 TC Bedroom Sets</p>
-                                </div>
-                                <!-- arrow icon -->
-                                <div
-                                    class="w-8 h-8 rounded-full border border-[#2c221e]/15 flex items-center justify-center text-[#2c221e] group-hover:bg-[#6b1b1b] group-hover:text-white group-hover:border-[#6b1b1b] transition-all duration-300 shrink-0 ml-3">
-                                    <svg class="w-4.5 h-4.5 stroke-current fill-none" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
-                                            d="M9 5l7 7-7 7" />
-                                    </svg>
-                                </div>
+                            <!-- arrow icon -->
+                            <div
+                                class="w-8 h-8 rounded-full border border-[#2c221e]/15 flex items-center justify-center text-[#2c221e] group-hover:bg-[#6b1b1b] group-hover:text-white group-hover:border-[#6b1b1b] transition-all duration-300 shrink-0 ml-3">
+                                <svg class="w-4.5 h-4.5 stroke-current fill-none" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
+                                        d="M9 5l7 7-7 7" />
+                                </svg>
                             </div>
                         </div>
                     </a>
 
                     <!-- Collection 2: French Flax Linen -->
                     <a href="collection.html?id=linen"
-                        class="snap-start shrink-0 w-[65%] sm:w-[45%] md:w-[35%] lg:w-[23%] group">
-                        <div
-                            class="bg-white rounded-2xl overflow-hidden shadow-sm border border-luxury-gold/5 flex flex-col justify-between h-full transition-all duration-500 hover:-translate-y-1.5 hover:shadow-md">
-                            <!-- Image Container -->
-                            <div class="relative aspect-[16/10] overflow-hidden bg-luxury-beige">
-                                <span
-                                    class="absolute top-3.5 left-3.5 bg-[#6b1b1b] text-white text-[8px] md:text-[9px] uppercase tracking-[0.2em] font-bold py-1 px-3.5 rounded-full z-10 shadow-sm">
-                                    New Launch
-                                </span>
-                                <img src="https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&q=80&w=800"
-                                    alt="French Flax Linen Collection"
-                                    class="w-full h-full object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-105">
+                        class="w-[85vw] sm:w-[60vw] flex-shrink-0 snap-center rounded-2xl overflow-hidden bg-[#f4efe8] shadow-sm flex flex-col relative group transition-all duration-500 hover:-translate-y-1.5 hover:shadow-md">
+                        <!-- Bulletproof Image Wrapper -->
+                        <div class="w-full h-64 sm:h-72 relative bg-gray-200">
+                            <span
+                                class="absolute top-3.5 left-3.5 bg-[#6b1b1b] text-white text-[8px] md:text-[9px] uppercase tracking-[0.2em] font-bold py-1 px-3.5 rounded-full z-10 shadow-sm">
+                                New Launch
+                            </span>
+                            <img src="https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&q=80&w=800"
+                                alt="French Flax Linen Collection"
+                                class="absolute inset-0 w-full h-full object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-105">
+                        </div>
+                        <!-- Details Bottom -->
+                        <div class="p-5 flex items-center justify-between mt-auto">
+                            <div>
+                                <h3
+                                    class="font-cormorant italic text-lg md:text-xl text-[#2c221e] mb-0.5 group-hover:text-[#6b1b1b] transition-colors">
+                                    French Flax Linen</h3>
+                                <p
+                                    class="text-[10px] tracking-wider uppercase text-[#2c221e]/50 font-semibold font-sans">
+                                    Organic Bedding</p>
                             </div>
-                            <!-- Details Bottom -->
-                            <div class="p-5 bg-[#fbfaf8] flex items-center justify-between border-t border-[#f3eee6]">
-                                <div>
-                                    <h3
-                                        class="font-cormorant italic text-lg md:text-xl text-[#2c221e] mb-0.5 group-hover:text-[#6b1b1b] transition-colors">
-                                        French Flax Linen</h3>
-                                    <p
-                                        class="text-[10px] tracking-wider uppercase text-[#2c221e]/50 font-semibold font-sans">
-                                        Organic Bedding</p>
-                                </div>
-                                <!-- arrow icon -->
-                                <div
-                                    class="w-8 h-8 rounded-full border border-[#2c221e]/15 flex items-center justify-center text-[#2c221e] group-hover:bg-[#6b1b1b] group-hover:text-white group-hover:border-[#6b1b1b] transition-all duration-300 shrink-0 ml-3">
-                                    <svg class="w-4.5 h-4.5 stroke-current fill-none" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
-                                            d="M9 5l7 7-7 7" />
-                                    </svg>
-                                </div>
+                            <!-- arrow icon -->
+                            <div
+                                class="w-8 h-8 rounded-full border border-[#2c221e]/15 flex items-center justify-center text-[#2c221e] group-hover:bg-[#6b1b1b] group-hover:text-white group-hover:border-[#6b1b1b] transition-all duration-300 shrink-0 ml-3">
+                                <svg class="w-4.5 h-4.5 stroke-current fill-none" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
+                                        d="M9 5l7 7-7 7" />
+                                </svg>
                             </div>
                         </div>
                     </a>
 
                     <!-- Collection 3: Velvet Stitch Quilts -->
                     <a href="collection.html?id=quilts"
-                        class="snap-start shrink-0 w-[65%] sm:w-[45%] md:w-[35%] lg:w-[23%] group">
-                        <div
-                            class="bg-white rounded-2xl overflow-hidden shadow-sm border border-luxury-gold/5 flex flex-col justify-between h-full transition-all duration-500 hover:-translate-y-1.5 hover:shadow-md">
-                            <!-- Image Container -->
-                            <div class="relative aspect-[16/10] overflow-hidden bg-luxury-beige">
-                                <span
-                                    class="absolute top-3.5 left-3.5 bg-[#6b1b1b] text-white text-[8px] md:text-[9px] uppercase tracking-[0.2em] font-bold py-1 px-3.5 rounded-full z-10 shadow-sm">
-                                    New Launch
-                                </span>
-                                <img src="https://images.unsplash.com/photo-1584100936595-c0654b55a2e6?auto=format&fit=crop&q=80&w=800"
-                                    alt="Velvet Stitch Quilt Collection"
-                                    class="w-full h-full object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-105">
+                        class="w-[85vw] sm:w-[60vw] flex-shrink-0 snap-center rounded-2xl overflow-hidden bg-[#f4efe8] shadow-sm flex flex-col relative group transition-all duration-500 hover:-translate-y-1.5 hover:shadow-md">
+                        <!-- Bulletproof Image Wrapper -->
+                        <div class="w-full h-64 sm:h-72 relative bg-gray-200">
+                            <span
+                                class="absolute top-3.5 left-3.5 bg-[#6b1b1b] text-white text-[8px] md:text-[9px] uppercase tracking-[0.2em] font-bold py-1 px-3.5 rounded-full z-10 shadow-sm">
+                                New Launch
+                            </span>
+                            <img src="https://images.unsplash.com/photo-1584100936595-c0654b55a2e6?auto=format&fit=crop&q=80&w=800"
+                                alt="Velvet Stitch Quilt Collection"
+                                class="absolute inset-0 w-full h-full object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-105">
+                        </div>
+                        <!-- Details Bottom -->
+                        <div class="p-5 flex items-center justify-between mt-auto">
+                            <div>
+                                <h3
+                                    class="font-cormorant italic text-lg md:text-xl text-[#2c221e] mb-0.5 group-hover:text-[#6b1b1b] transition-colors">
+                                    Velvet Stitch</h3>
+                                <p
+                                    class="text-[10px] tracking-wider uppercase text-[#2c221e]/50 font-semibold font-sans">
+                                    Hand-Quilted Sets</p>
                             </div>
-                            <!-- Details Bottom -->
-                            <div class="p-5 bg-[#fbfaf8] flex items-center justify-between border-t border-[#f3eee6]">
-                                <div>
-                                    <h3
-                                        class="font-cormorant italic text-lg md:text-xl text-[#2c221e] mb-0.5 group-hover:text-[#6b1b1b] transition-colors">
-                                        Velvet Stitch</h3>
-                                    <p
-                                        class="text-[10px] tracking-wider uppercase text-[#2c221e]/50 font-semibold font-sans">
-                                        Hand-Quilted Sets</p>
-                                </div>
-                                <!-- arrow icon -->
-                                <div
-                                    class="w-8 h-8 rounded-full border border-[#2c221e]/15 flex items-center justify-center text-[#2c221e] group-hover:bg-[#6b1b1b] group-hover:text-white group-hover:border-[#6b1b1b] transition-all duration-300 shrink-0 ml-3">
-                                    <svg class="w-4.5 h-4.5 stroke-current fill-none" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
-                                            d="M9 5l7 7-7 7" />
-                                    </svg>
-                                </div>
+                            <!-- arrow icon -->
+                            <div
+                                class="w-8 h-8 rounded-full border border-[#2c221e]/15 flex items-center justify-center text-[#2c221e] group-hover:bg-[#6b1b1b] group-hover:text-white group-hover:border-[#6b1b1b] transition-all duration-300 shrink-0 ml-3">
+                                <svg class="w-4.5 h-4.5 stroke-current fill-none" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
+                                        d="M9 5l7 7-7 7" />
+                                </svg>
                             </div>
                         </div>
                     </a>
 
                     <!-- Collection 4: Mulberry Silk Accents -->
                     <a href="collection.html?id=silk"
-                        class="snap-start shrink-0 w-[65%] sm:w-[45%] md:w-[35%] lg:w-[23%] group">
-                        <div
-                            class="bg-white rounded-2xl overflow-hidden shadow-sm border border-luxury-gold/5 flex flex-col justify-between h-full transition-all duration-500 hover:-translate-y-1.5 hover:shadow-md">
-                            <!-- Image Container -->
-                            <div class="relative aspect-[16/10] overflow-hidden bg-luxury-beige">
-                                <span
-                                    class="absolute top-3.5 left-3.5 bg-[#6b1b1b] text-white text-[8px] md:text-[9px] uppercase tracking-[0.2em] font-bold py-1 px-3.5 rounded-full z-10 shadow-sm">
-                                    Bestseller
-                                </span>
-                                <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&q=80&w=800"
-                                    alt="Mulberry Silk Accents"
-                                    class="w-full h-full object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-105">
+                        class="w-[85vw] sm:w-[60vw] flex-shrink-0 snap-center rounded-2xl overflow-hidden bg-[#f4efe8] shadow-sm flex flex-col relative group transition-all duration-500 hover:-translate-y-1.5 hover:shadow-md">
+                        <!-- Bulletproof Image Wrapper -->
+                        <div class="w-full h-64 sm:h-72 relative bg-gray-200">
+                            <span
+                                class="absolute top-3.5 left-3.5 bg-[#6b1b1b] text-white text-[8px] md:text-[9px] uppercase tracking-[0.2em] font-bold py-1 px-3.5 rounded-full z-10 shadow-sm">
+                                Bestseller
+                            </span>
+                            <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&q=80&w=800"
+                                alt="Mulberry Silk Accents"
+                                class="absolute inset-0 w-full h-full object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-105">
+                        </div>
+                        <!-- Details Bottom -->
+                        <div class="p-5 flex items-center justify-between mt-auto">
+                            <div>
+                                <h3
+                                    class="font-cormorant italic text-lg md:text-xl text-[#2c221e] mb-0.5 group-hover:text-[#6b1b1b] transition-colors">
+                                    Mulberry Silk</h3>
+                                <p
+                                    class="text-[10px] tracking-wider uppercase text-[#2c221e]/50 font-semibold font-sans">
+                                    Anti-Aging Accents</p>
                             </div>
-                            <!-- Details Bottom -->
-                            <div class="p-5 bg-[#fbfaf8] flex items-center justify-between border-t border-[#f3eee6]">
-                                <div>
-                                    <h3
-                                        class="font-cormorant italic text-lg md:text-xl text-[#2c221e] mb-0.5 group-hover:text-[#6b1b1b] transition-colors">
-                                        Mulberry Silk</h3>
-                                    <p
-                                        class="text-[10px] tracking-wider uppercase text-[#2c221e]/50 font-semibold font-sans">
-                                        Anti-Aging Accents</p>
-                                </div>
-                                <!-- arrow icon -->
-                                <div
-                                    class="w-8 h-8 rounded-full border border-[#2c221e]/15 flex items-center justify-center text-[#2c221e] group-hover:bg-[#6b1b1b] group-hover:text-white group-hover:border-[#6b1b1b] transition-all duration-300 shrink-0 ml-3">
-                                    <svg class="w-4.5 h-4.5 stroke-current fill-none" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
-                                            d="M9 5l7 7-7 7" />
-                                    </svg>
-                                </div>
+                            <!-- arrow icon -->
+                            <div
+                                class="w-8 h-8 rounded-full border border-[#2c221e]/15 flex items-center justify-center text-[#2c221e] group-hover:bg-[#6b1b1b] group-hover:text-white group-hover:border-[#6b1b1b] transition-all duration-300 shrink-0 ml-3">
+                                <svg class="w-4.5 h-4.5 stroke-current fill-none" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
+                                        d="M9 5l7 7-7 7" />
+                                </svg>
                             </div>
                         </div>
                     </a>
@@ -534,7 +522,7 @@
                 <p class="text-center text-xs tracking-widest uppercase text-luxury-brown/50 mb-12">Exquisite
                     craftsmanship, contemporary contours</p>
                 <div id="featured-products-grid"
-                    class="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-6 lg:grid lg:grid-cols-4 lg:gap-6 lg:overflow-x-visible lg:pb-0 no-scrollbar px-2 -mx-2">
+                    class="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-6 lg:grid lg:grid-cols-4 lg:gap-x-4 lg:gap-y-6 lg:overflow-x-visible lg:pb-0 no-scrollbar px-2 -mx-2">
                     <!-- Products rendered synchronously here -->
                 </div>
             </div>
@@ -582,7 +570,7 @@
             image: "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&q=80&w=1200",
             images: [
                 "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&q=80&w=1200",
-                "https://images.unsplash.com/photo-1505693395321-883724634266?auto=format&fit=crop&q=80&w=800"
+                "https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&q=80&w=800"
             ],
             badge: "Limited Edition"
         };

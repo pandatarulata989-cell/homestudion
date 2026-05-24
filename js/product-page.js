@@ -7,78 +7,7 @@
 import { getProductById } from './products.js';
 import { addToCart, showCartNotification } from './cart.js';
 
-// 8 Bedding angles per colorway (For Bedding/Sheets products only)
-const GALLERY_DATA = {
-    "Navy Blue": [
-        { title: "Front bed angle", url: "https://images.unsplash.com/photo-1540518614846-7eded433c457?auto=format&fit=crop&w=500&q=60" },
-        { title: "Top view", url: "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=500&q=60" },
-        { title: "Side angle", url: "https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=500&q=60" },
-        { title: "Folded fabric close-up", url: "https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?auto=format&fit=crop&w=500&q=60" },
-        { title: "Pillow styling shot", url: "https://images.unsplash.com/photo-1631679706909-1844bbd07221?auto=format&fit=crop&w=500&q=60" },
-        { title: "Lifestyle room setup", url: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=500&q=60" },
-        { title: "Zoomed fabric texture shot", url: "https://images.unsplash.com/photo-1626880241934-3a9413f9f9d7?auto=format&fit=crop&w=500&q=60" },
-        { title: "Alternate room lighting setup", url: "https://images.unsplash.com/photo-1560185007-cde436f6a4d0?auto=format&fit=crop&w=500&q=60" }
-    ],
-    "Burgundy": [
-        { title: "Front bed angle", url: "https://images.unsplash.com/photo-1505693395321-883724634266?auto=format&fit=crop&w=500&q=60" },
-        { title: "Top view", url: "https://images.unsplash.com/photo-1598928506311-c55ded91a20c?auto=format&fit=crop&w=500&q=60" },
-        { title: "Side angle", url: "https://images.unsplash.com/photo-1540518614846-7eded433c457?auto=format&fit=crop&w=500&q=60" },
-        { title: "Folded fabric close-up", url: "https://images.unsplash.com/photo-1617806118233-18e1db207f62?auto=format&fit=crop&w=500&q=60" },
-        { title: "Pillow styling shot", url: "https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?auto=format&fit=crop&w=500&q=60" },
-        { title: "Lifestyle room setup", url: "https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=500&q=60" },
-        { title: "Zoomed fabric texture shot", url: "https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?auto=format&fit=crop&w=500&q=60" },
-        { title: "Alternate room lighting setup", url: "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=500&q=60" }
-    ],
-    "Beige": [
-        { title: "Front bed angle", url: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=500&q=60" },
-        { title: "Top view", url: "https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=500&q=60" },
-        { title: "Side angle", url: "https://images.unsplash.com/photo-1595428774223-ef52624120d2?auto=format&fit=crop&w=500&q=60" },
-        { title: "Folded fabric close-up", url: "https://images.unsplash.com/photo-1612196808214-b8e1d6145a8c?auto=format&fit=crop&w=500&q=60" },
-        { title: "Pillow styling shot", url: "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=500&q=60" },
-        { title: "Lifestyle room setup", url: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=500&q=60" },
-        { title: "Zoomed fabric texture shot", url: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=500&q=60" },
-        { title: "Alternate room lighting setup", url: "https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=500&q=60" }
-    ],
-    "Ivory": [
-        { title: "Front bed angle", url: "https://images.unsplash.com/photo-1617806118233-18e1db207f62?auto=format&fit=crop&w=500&q=60" },
-        { title: "Top view", url: "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=500&q=60" },
-        { title: "Side angle", url: "https://images.unsplash.com/photo-1505693395321-883724634266?auto=format&fit=crop&w=500&q=60" },
-        { title: "Folded fabric close-up", url: "https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?auto=format&fit=crop&w=500&q=60" },
-        { title: "Pillow styling shot", url: "https://images.unsplash.com/photo-1631679706909-1844bbd07221?auto=format&fit=crop&w=500&q=60" },
-        { title: "Lifestyle room setup", url: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=500&q=60" },
-        { title: "Zoomed fabric texture shot", url: "https://images.unsplash.com/photo-1626880241934-3a9413f9f9d7?auto=format&fit=crop&w=500&q=60" },
-        { title: "Alternate room lighting setup", url: "https://images.unsplash.com/photo-1560185007-cde436f6a4d0?auto=format&fit=crop&w=500&q=60" }
-    ],
-    "Charcoal": [
-        { title: "Front bed angle", url: "https://images.unsplash.com/photo-1505693395321-883724634266?auto=format&fit=crop&w=500&q=60" },
-        { title: "Top view", url: "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=500&q=60" },
-        { title: "Side angle", url: "https://images.unsplash.com/photo-1540518614846-7eded433c457?auto=format&fit=crop&w=500&q=60" },
-        { title: "Folded fabric close-up", url: "https://images.unsplash.com/photo-1626880241934-3a9413f9f9d7?auto=format&fit=crop&w=500&q=60" },
-        { title: "Pillow styling shot", url: "https://images.unsplash.com/photo-1631679706909-1844bbd07221?auto=format&fit=crop&w=500&q=60" },
-        { title: "Lifestyle room setup", url: "https://images.unsplash.com/photo-1505693395321-883724634266?auto=format&fit=crop&w=500&q=60" },
-        { title: "Zoomed fabric texture shot", url: "https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?auto=format&fit=crop&w=500&q=60" },
-        { title: "Alternate room lighting setup", url: "https://images.unsplash.com/photo-1560185007-cde436f6a4d0?auto=format&fit=crop&w=500&q=60" }
-    ],
-    "Patterned": [
-        { title: "Front bed angle", url: "https://images.unsplash.com/photo-1598928506311-c55ded91a20c?auto=format&fit=crop&w=500&q=60" },
-        { title: "Top view", url: "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=500&q=60" },
-        { title: "Side angle", url: "https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=500&q=60" },
-        { title: "Folded fabric close-up", url: "https://images.unsplash.com/photo-1617806118233-18e1db207f62?auto=format&fit=crop&w=500&q=60" },
-        { title: "Pillow styling shot", url: "https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?auto=format&fit=crop&w=500&q=60" },
-        { title: "Lifestyle room setup", url: "https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=500&q=60" },
-        { title: "Zoomed fabric texture shot", url: "https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?auto=format&fit=crop&w=500&q=60" },
-        { title: "Alternate room lighting setup", url: "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=500&q=60" }
-    ]
-};
-
-const SWATCH_HEX_MAP = {
-    "Navy Blue": "#1e3a8a",
-    "Burgundy": "#800020",
-    "Beige": "#d7ccc8",
-    "Ivory": "#fffff0",
-    "Charcoal": "#374151",
-    "Patterned": "url('https://images.unsplash.com/photo-1598928506311-c55ded91a20c?auto=format&fit=crop&w=40&q=60')"
-};
+/// Dynamic Thumbnail Gallery system configured via Firestore variantImages
 
 // WhatsApp brand number configuration
 const WHATSAPP_PHONE_NUMBER = "15550199";
@@ -114,7 +43,6 @@ async function init() {
         if (errorContainer) errorContainer.classList.add('hidden');
 
         // Global states
-        let selectedColor = "";
         let selectedSize = "";
         let productQuantity = 1;
         let activeImagesList = [];
@@ -227,9 +155,9 @@ async function init() {
         function updatePricingForSize(size) {
             let basePrice = parseFloat(product.price);
             if (isBedding) {
-                if (size.includes('Queen')) {
+                if (size && size.includes('Queen')) {
                     basePrice = 3199;
-                } else if (size.includes('Super King')) {
+                } else if (size && size.includes('Super King')) {
                     basePrice = 3999;
                 } else {
                     basePrice = 3599; // King size
@@ -285,82 +213,46 @@ async function init() {
             updateWhatsAppLink();
         }
 
-        // 2. Set Up Color swatches
-        const colorSwatchesContainer = document.getElementById('color-swatches-container');
-        const colorLabelSpan = document.getElementById('selected-color-label');
-        
-        const hasColors = product.colors && product.colors.length > 0;
-        const colorsList = hasColors ? product.colors : (product.options?.["Fabric Color"] || []);
-
-        if (colorsList.length > 0) {
-            selectedColor = colorsList[0]; // Set default
-            if (colorLabelSpan) colorLabelSpan.textContent = selectedColor;
-            
-            if (colorSwatchesContainer) {
-                colorSwatchesContainer.innerHTML = colorsList.map((color) => {
-                    const isPattern = color === 'Patterned';
-                    const backgroundStyle = isPattern 
-                        ? `background-image: ${SWATCH_HEX_MAP[color] || "none"}; background-size: cover;` 
-                        : `background-color: ${SWATCH_HEX_MAP[color] || '#ccc'}`;
-                    
-                    return `
-                        <button 
-                            type="button"
-                            class="color-swatch-btn w-8 h-8 rounded-full border border-warm-gray/40 shadow-sm transition-all duration-300 flex-shrink-0 cursor-pointer focus:outline-none hover:scale-110" 
-                            style="${backgroundStyle}" 
-                            data-color="${color}" 
-                            title="${color}"
-                            aria-label="Select fabric color ${color}">
-                        </button>
-                    `;
-                }).join('');
-            }
-        } else {
-            if (colorSwatchesContainer) {
-                colorSwatchesContainer.innerHTML = `<span class="text-xs text-[#2c221e]/60 font-semibold">Standard Material Finish</span>`;
-            }
-            if (colorLabelSpan && colorLabelSpan.parentNode) colorLabelSpan.parentNode.style.display = 'none';
-        }
-
-        // 3. Set Up Sizes Selector
+        // 2. Set Up Sizes Selector
         const sizeSelector = document.getElementById('product-size');
-        const sizeLabel = document.querySelector('label[for="product-size"]');
-        const sizesList = product.sizes && product.sizes.length > 0 ? product.sizes : (product.options?.["Size"] || []);
+        const sizeSelectionBlock = document.getElementById('size-selection-block');
+        const sizesList = product.sizes || [];
 
-        if (sizesList.length > 0) {
+        if (sizesList && sizesList.length > 0) {
+            if (sizeSelectionBlock) sizeSelectionBlock.classList.remove('hidden');
             sizeSelector.innerHTML = sizesList.map((size) => {
                 return `<option value="${size}">${size}</option>`;
             }).join('');
             selectedSize = sizeSelector.value;
-            if (sizeLabel) sizeLabel.textContent = "Select Size:";
-        } else if (product.options && Object.keys(product.options).length > 0) {
-            // Use first available dynamic config option for fallback
-            const firstOptionTitle = Object.keys(product.options)[0];
-            sizeSelector.innerHTML = product.options[firstOptionTitle].map(v => `<option value="${v}">${v}</option>`).join('');
-            selectedSize = sizeSelector.value;
-            if (sizeLabel) sizeLabel.textContent = `Select ${firstOptionTitle}:`;
         } else {
-            sizeSelector.innerHTML = `<option value="Standard">Standard Size</option>`;
-            selectedSize = "Standard";
-            if (sizeLabel) sizeLabel.textContent = "Select Option:";
+            selectedSize = "";
+            if (sizeSelectionBlock) {
+                sizeSelectionBlock.classList.add('hidden');
+            }
         }
 
         // Initial price calculations
         updatePricingForSize(selectedSize);
 
-        // 4. Set Up Images Gallery and Swipe Behaviors
+        // 3. Set Up Images Gallery and Swipe Behaviors
         const verticalContainer = document.getElementById('vertical-thumbnails-container');
         const horizontalContainer = document.getElementById('horizontal-thumbnails-container');
         const mainImg = document.getElementById('product-main-image');
 
-        function updateGalleryImages(colorName) {
-            activeImagesList = (isBedding && GALLERY_DATA[colorName]) 
-                ? GALLERY_DATA[colorName] 
-                : (product.images && product.images.length > 0)
-                    ? product.images.map((url, idx) => ({ title: `Angle ${idx + 1}`, url }))
+        function updateGalleryImages() {
+            activeImagesList = (product.variantImages && Array.isArray(product.variantImages) && product.variantImages.length > 0)
+                ? product.variantImages.map((url, idx) => ({ title: `Design Variant ${idx + 1}`, url }))
+                : (product.images && Array.isArray(product.images) && product.images.length > 0)
+                    ? product.images.map((url, idx) => ({ title: `Design Variant ${idx + 1}`, url }))
                     : [{ title: product.name, url: product.image || 'assets/images/placeholder.jpg' }];
             
             activeImageIdx = 0;
+            
+            // Set variantImages[0] as default src
+            if (activeImagesList.length > 0) {
+                mainImg.src = activeImagesList[0].url;
+            }
+            
             renderGalleryUI();
         }
 
@@ -372,14 +264,20 @@ async function init() {
             mainImg.src = activeImage.url;
             mainImg.alt = `${product.name} - ${activeImage.title}`;
 
+            const thumbnailBtnClass = (idx) => {
+                const isActive = idx === activeImageIdx;
+                const borderClass = isActive ? 'border-black' : 'border-transparent';
+                return `thumb-btn w-16 h-16 rounded-md border-2 ${borderClass} hover:border-gray-800 cursor-pointer object-cover transition-all duration-300`;
+            };
+
             // Build Vertical Strip (Desktop)
             verticalContainer.innerHTML = activeImagesList.map((img, idx) => `
                 <button 
                     type="button" 
-                    class="thumb-btn w-16 h-16 bg-white border border-warm-gray/20 rounded-xl overflow-hidden flex-shrink-0 transition-all duration-300 hover:scale-105 hover:shadow-sm focus:outline-none ${idx === activeImageIdx ? 'active-thumb' : ''}" 
+                    class="${thumbnailBtnClass(idx)} flex-shrink-0 overflow-hidden focus:outline-none" 
                     data-idx="${idx}"
-                    aria-label="View ${img.title} image angle">
-                    <img src="${img.url}" alt="${img.title}" loading="lazy" class="w-full h-full object-cover">
+                    aria-label="View ${img.title}">
+                    <img src="${img.url}" alt="${img.title}" loading="lazy" class="w-full h-full object-cover rounded-sm">
                 </button>
             `).join('');
 
@@ -387,10 +285,10 @@ async function init() {
             horizontalContainer.innerHTML = activeImagesList.map((img, idx) => `
                 <button 
                     type="button" 
-                    class="thumb-btn flex-shrink-0 w-16 h-16 bg-white border border-warm-gray/20 rounded-xl overflow-hidden transition-all duration-300 focus:outline-none snap-center ${idx === activeImageIdx ? 'active-thumb' : ''}" 
+                    class="${thumbnailBtnClass(idx)} flex-shrink-0 overflow-hidden focus:outline-none snap-center" 
                     data-idx="${idx}"
-                    aria-label="View ${img.title} image angle">
-                    <img src="${img.url}" alt="${img.title}" loading="lazy" class="w-full h-full object-cover">
+                    aria-label="View ${img.title}">
+                    <img src="${img.url}" alt="${img.title}" loading="lazy" class="w-full h-full object-cover rounded-sm">
                 </button>
             `).join('');
 
@@ -423,10 +321,12 @@ async function init() {
             allThumbButtons.forEach(b => {
                 const buttonIdx = parseInt(b.getAttribute('data-idx'));
                 if (buttonIdx === activeImageIdx) {
-                    b.classList.add('active-thumb');
+                    b.classList.add('border-black');
+                    b.classList.remove('border-transparent');
                     b.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
                 } else {
-                    b.classList.remove('active-thumb');
+                    b.classList.remove('border-black');
+                    b.classList.add('border-transparent');
                 }
             });
             
@@ -435,33 +335,7 @@ async function init() {
         }
 
         // Run initial gallery hydration
-        updateGalleryImages(selectedColor);
-
-        // Bind Color Swatches Selection Actions
-        function handleSwatchActiveHighlight(colorVal) {
-            document.querySelectorAll('.color-swatch-btn').forEach(btn => {
-                if (btn.getAttribute('data-color') === colorVal) {
-                    btn.classList.add('active-swatch');
-                } else {
-                    btn.classList.remove('active-swatch');
-                }
-            });
-        }
-        
-        // Set default swatch active border
-        if (hasColors || colorsList.length > 0) {
-            handleSwatchActiveHighlight(selectedColor);
-
-            document.querySelectorAll('.color-swatch-btn').forEach(btn => {
-                btn.addEventListener('click', () => {
-                    selectedColor = btn.getAttribute('data-color');
-                    if (colorLabelSpan) colorLabelSpan.textContent = selectedColor;
-                    handleSwatchActiveHighlight(selectedColor);
-                    updateGalleryImages(selectedColor);
-                    updateWhatsAppLink();
-                });
-            });
-        }
+        updateGalleryImages();
 
         // Bind Size dropdown updates
         sizeSelector.addEventListener('change', () => {
@@ -591,7 +465,6 @@ async function init() {
         // 9. Add to Bag & Buy Now Checkout Pipeline
         const executeAddToCart = () => {
             const selectedOptions = {};
-            if (selectedColor) selectedOptions["Color"] = selectedColor;
             if (selectedSize) selectedOptions["Size"] = selectedSize;
             
             // Build custom checkout object reflecting exact swatch selection photo
@@ -630,7 +503,6 @@ async function init() {
         }
 
         // 10. WhatsApp Checkout/Inquiry pipeline
-
         function updateWhatsAppLink() {
             if (!whatsappBtn) return;
             
@@ -638,19 +510,18 @@ async function init() {
             const itemPrice = priceFormatter.format(product.currentSelectedPrice || product.price);
             
             const optionsText = [
-                selectedColor ? `*Color*: ${selectedColor}` : null,
                 selectedSize ? `*Size*: ${selectedSize}` : null
             ].filter(Boolean).join('\n');
-
+ 
             const message = `Hi Home Studio, I am interested in inquiring about this product:
-
+ 
 *Product*: ${product.name}
 ${optionsText}
 *Quantity*: ${productQuantity}
 *Price*: ${itemPrice}
-
+ 
 Link: ${currentURL}`;
-
+ 
             const encodedMessage = encodeURIComponent(message);
             whatsappBtn.href = `https://wa.me/${WHATSAPP_PHONE_NUMBER}?text=${encodedMessage}`;
         }
